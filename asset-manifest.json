@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ruyani/static/css/main.e1531ca6.css",
-    "main.js": "/ruyani/static/js/main.f7dd17b6.js",
+    "main.js": "/ruyani/static/js/main.f5386167.js",
     "static/js/453.5665b8ae.chunk.js": "/ruyani/static/js/453.5665b8ae.chunk.js",
     "static/media/ban.png": "/ruyani/static/media/ban.b9786bf1ce1164b8e436.png",
     "index.html": "/ruyani/index.html",
     "main.e1531ca6.css.map": "/ruyani/static/css/main.e1531ca6.css.map",
-    "main.f7dd17b6.js.map": "/ruyani/static/js/main.f7dd17b6.js.map",
+    "main.f5386167.js.map": "/ruyani/static/js/main.f5386167.js.map",
     "453.5665b8ae.chunk.js.map": "/ruyani/static/js/453.5665b8ae.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e1531ca6.css",
-    "static/js/main.f7dd17b6.js"
+    "static/js/main.f5386167.js"
   ]
 }
