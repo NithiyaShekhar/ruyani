@@ -11,6 +11,7 @@ export default function Ruyani() {
       name: "Kumkumadi Cream",
       desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in 7 days.",
       price: 250,
+      category: "Skin Care",
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ export default function Ruyani() {
       name: "Face Brightening Scrub",
       desc: "Calming scrub made with natural exfoliants",
       price: 220,
+      category: "Skin Care",
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ export default function Ruyani() {
       name: "Kumkumadi Face Serum",
       desc: "Traditional Ayurvedic serum for radiant skin",
       price: 250,
+      category: "Skin Care",
     },
     {
       id: 4,
@@ -32,6 +35,7 @@ export default function Ruyani() {
       name: "Dark Circle Serum",
       desc: "Reduces dark circles & puffiness",
       price: 199,
+      category: "Skin Care",
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ export default function Ruyani() {
       name: "Kumkumadi Face Wash",
       desc: "Gentle daily cleanser with herbs",
       price: 195,
+      category: "Skin Care",
     },
     {
       id: 6,
@@ -46,6 +51,7 @@ export default function Ruyani() {
       name: "Charcoal Soap",
       desc: "Deep cleansing activated charcoal soap",
       price: 110,
+      category: "Body Care",
     },
     {
       id: 7,
@@ -53,6 +59,7 @@ export default function Ruyani() {
       name: "Kuppaimeni Soap",
       desc: "Herbal soap for acne-prone skin",
       price: 110,
+      category: "Body Care",
     },
     {
       id: 8,
@@ -60,6 +67,7 @@ export default function Ruyani() {
       name: "Advanced Hair Regrowth Oil",
       desc: "Strengthens roots & promotes growth",
       price: 210,
+      category: "Hair Care",
     },
     {
       id: 9,
@@ -67,6 +75,7 @@ export default function Ruyani() {
       name: "Organic Herbal Hair Dye",
       desc: "100% chemical-free hair dye",
       price: 280,
+      category: "Hair Care",
     },
     {
       id: 10,
@@ -74,6 +83,7 @@ export default function Ruyani() {
       name: "Anti-dandruff Hair Oil",
       desc: "Controls dandruff naturally",
       price: 220,
+      category: "Hair Care",
     },
     {
       id: 11,
@@ -81,6 +91,7 @@ export default function Ruyani() {
       name: "Shikakai Hair Conditioner",
       desc: "Smooth & nourish hair",
       price: 199,
+      category: "Hair Care",
     },
     {
       id: 12,
@@ -88,6 +99,7 @@ export default function Ruyani() {
       name: "Moringa Hair Conditioner",
       desc: "Strengthens weak hair",
       price: 199,
+      category: "Hair Care",
     },
     {
       id: 13,
@@ -95,6 +107,7 @@ export default function Ruyani() {
       name: "Rose Petals Soap",
       desc: "Gentle soap with real rose petals",
       price: 110,
+      category: "Body Care",
     },
     {
       id: 14,
@@ -102,6 +115,7 @@ export default function Ruyani() {
       name: "Kumkumadi Soap",
       desc: "Brightening soap with saffron",
       price: 110,
+      category: "Body Care",
     },
     {
       id: 15,
@@ -109,6 +123,7 @@ export default function Ruyani() {
       name: "Red Wine Soap",
       desc: "Antioxidant-rich soap with red wine extract",
       price: 110,
+      category: "Body Care",
     },
     {
       id: 16,
@@ -116,6 +131,7 @@ export default function Ruyani() {
       name: "Pigmentation Soap",
       desc: "Reduces pigmentation & evens skin tone",
       price: 110,
+      category: "Body Care",
     },
     {
       id: 17,
@@ -123,6 +139,7 @@ export default function Ruyani() {
       name: "Natural Lip Balm",
       desc: "Hydrating lip balm with natural oils",
       price: 160,
+      category: "Skin Care",
     },
   ];
   const [cart, setCart] = useState(() => {
@@ -130,6 +147,8 @@ export default function Ruyani() {
     return saved ? JSON.parse(saved) : [];
   });
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
@@ -222,11 +241,35 @@ export default function Ruyani() {
     <>
       {/* Navbar */}
       <nav className="navbar">
-        <div className="nav-logo">RUYANI</div>
+        <div className="nav-logo">RUYANI NATURALS</div>
 
         <ul className="nav-links">
           <li>
-            <a href="#">Home</a>
+            <a href="#" onClick={() => setActiveCategory("All")}>Home</a>
+          </li>
+          <li
+            className="dropdown"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <span 
+              className="dropdown-title" 
+              onClick={() => {
+                setActiveCategory("All");
+                setIsDropdownOpen(prev => !prev);
+              }} 
+              style={{ cursor: 'pointer' }}
+            >
+              Categories ▾
+            </span>
+
+            {isDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li><a href="#products" onClick={() => { setActiveCategory("Skin Care"); setIsDropdownOpen(false); }}>Skin Care</a></li>
+                <li><a href="#products" onClick={() => { setActiveCategory("Hair Care"); setIsDropdownOpen(false); }}>Hair Care</a></li>
+                <li><a href="#products" onClick={() => { setActiveCategory("Body Care"); setIsDropdownOpen(false); }}>Body Care</a></li>
+              </ul>
+            )}
           </li>
           <li>
             <a href="#about">About Us</a>
@@ -309,20 +352,30 @@ export default function Ruyani() {
       {/* Products */}
       <section className="products" id="products">
         <h2>Handcrafted for life's essentials</h2>
-        <div className="products-grid">
-          {products.map((p) => (
-            <div className="product-card" key={p.id}>
-              <img src={p.img} alt={p.name} />
-              <div className="product-info">
-                <h3>{p.name}</h3>
-                <div className="price">Rs. {p.price}</div>
-                <button className="cta-btn" onClick={() => addToCart(p)}>
-                  Add to Cart
-                </button>
-              </div>
+
+        {["Skin Care", "Hair Care", "Body Care"]
+          .filter((cat) => activeCategory === "All" || activeCategory === cat)
+          .map((category) => (
+          <div key={category} id={category.toLowerCase().replace(" ", "")} className="category-section">
+            <h3 className="category-title">{category}</h3>
+            <div className="products-grid">
+              {products
+                .filter((p) => p.category === category)
+                .map((p) => (
+                  <div className="product-card" key={p.id}>
+                    <img src={p.img} alt={p.name} />
+                    <div className="product-info">
+                      <h3>{p.name}</h3>
+                      <div className="price">Rs. {p.price}</div>
+                      <button className="cta-btn" onClick={() => addToCart(p)}>
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </section>
       {/* Overlay */}
       {isCartOpen && (
