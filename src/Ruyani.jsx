@@ -12,20 +12,22 @@ export default function Ruyani() {
       desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in 7 days.",
       price: 250,
       category: "Skin Care",
+      badge: "Best Seller",
     },
     {
       id: 2,
       img: "images/Scrub.png",
       name: "Face Brightening Scrub",
-      desc: "Calming scrub made with natural exfoliants",
+      desc: "Natural exfoliating scrub that removes impurities, reduces dullness, and enhances your skin’s glow.",
       price: 220,
       category: "Skin Care",
+      inStock: false,
     },
     {
       id: 3,
-      img: "images/sangupoocream.png",
+      img: "images/Sangupoocream.png",
       name: "Sangupoo face Cream",
-      desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in 7 days.",
+      desc: "Herbal Sangupoo face cream enriched with natural ingredients to nourish, brighten, and give a healthy glowing skin.",
       price: 250,
       category: "Skin Care",
     },
@@ -33,7 +35,7 @@ export default function Ruyani() {
       id: 4,
       img: "images/kumkumserum.png",
       name: "Kumkumadi Face Serum",
-      desc: "Traditional Ayurvedic serum for radiant skin",
+      desc: "Enriched with traditional kumkumadi ingredients to brighten skin, reduce dark spots, and boost radiance.",
       price: 250,
       category: "Skin Care",
     },
@@ -41,23 +43,24 @@ export default function Ruyani() {
       id: 5,
       img: "images/darkcircleserum.png",
       name: "Dark Circle Serum",
-      desc: "Reduces dark circles & puffiness",
+      desc: "Enriched with natural ingredients to lighten dark circles, reduce puffiness, and refresh under-eye skin.",
       price: 199,
       category: "Skin Care",
+      inStock: false,
     },
     {
       id: 6,
       img: "images/kumkumadifacewash.png",
       name: "Kumkumadi Face Wash",
-      desc: "Gentle daily cleanser with herbs",
+      desc: "Enriched with kumkumadi ingredients to brighten skin, remove impurities, and give a radiant glow.",
       price: 195,
       category: "Skin Care",
     },
     {
       id: 7,
-      img: "images/coffeefacewash.png",
+      img: "images/Coffeefacewash.png",
       name: "Coffee Glow Face Wash",
-      desc: "Gentle daily cleanser with herbs",
+      desc: "Energizing coffee face wash that deeply cleanses, removes excess oil, and gives an instant natural glow.",
       price: 195,
       category: "Skin Care",
     },
@@ -65,7 +68,7 @@ export default function Ruyani() {
       id: 8,
       img: "images/charcoalsoap.png",
       name: "Charcoal Soap",
-      desc: "Deep cleansing activated charcoal soap",
+      desc: "Activated charcoal soap that deeply cleanses pores, removes impurities, and leaves skin fresh and clear.",
       price: 110,
       category: "Body Care",
     },
@@ -73,7 +76,7 @@ export default function Ruyani() {
       id: 9,
       img: "images/kuppaimenisoap.png",
       name: "Kuppaimeni Soap",
-      desc: "Herbal soap for acne-prone skin",
+      desc: "Herbal kuppaimeni soap that helps reduce acne, soothe skin, and promote a clear, healthy complexion.",
       price: 110,
       category: "Body Care",
     },
@@ -81,7 +84,7 @@ export default function Ruyani() {
       id: 10,
       img: "images/herbal hairoil.png",
       name: "Advanced Hair Regrowth Oil",
-      desc: "Strengthens roots & promotes growth",
+      desc: "Powerful herbal oil that strengthens roots, reduces hair fall, and supports healthy hair regrowth.",
       price: 210,
       category: "Hair Care",
     },
@@ -89,15 +92,16 @@ export default function Ruyani() {
       id: 11,
       img: "images/herbal hairdye.png",
       name: "Organic Herbal Hair Dye",
-      desc: "100% chemical-free hair dye",
+      desc: "100% herbal hair dye that naturally colors hair while nourishing and protecting it from damage.",
       price: 280,
       category: "Hair Care",
+      badge: "Best Seller",
     },
     {
       id: 12,
       img: "images/dandruff oil.png",
       name: "Anti-dandruff Hair Oil",
-      desc: "Controls dandruff naturally",
+      desc: "Herbal oil that controls dandruff, soothes itchy scalp, and keeps hair healthy and flake-free.",
       price: 220,
       category: "Hair Care",
     },
@@ -105,7 +109,7 @@ export default function Ruyani() {
       id: 13,
       img: "images/shikakaiHC.png",
       name: "Shikakai Hair Conditioner",
-      desc: "Smooth & nourish hair",
+      desc: "Nourishing conditioner with shikakai that smooths hair, reduces frizz, and adds natural shine.",
       price: 199,
       category: "Hair Care",
     },
@@ -113,7 +117,7 @@ export default function Ruyani() {
       id: 14,
       img: "images/shikakaishampoo.png",
       name: "Shikakai Shampoo",
-      desc: "Smooth & nourish hair",
+      desc: "Enriched with shikakai to cleanse naturally, reduce dandruff, and leave hair smooth, soft, and healthy.",
       price: 210,
       category: "Hair Care",
     },
@@ -121,7 +125,7 @@ export default function Ruyani() {
       id: 15,
       img: "images/MoringaHC.png",
       name: "Moringa Hair Conditioner",
-      desc: "Strengthens weak hair",
+      desc: "Moringa conditioner that strengthens weak hair, reduces breakage, and leaves hair soft and manageable.",
       price: 199,
       category: "Hair Care",
     },
@@ -129,7 +133,7 @@ export default function Ruyani() {
       id: 16,
       img: "images/moringashampoo.png",
       name: "Moringa Shampoo",
-      desc: "Strengthens weak hair",
+      desc: "Enriched with moringa extracts to strengthen roots, control hair fall, and leave hair soft and healthy.",
       price: 210,
       category: "Hair Care",
     },
@@ -137,7 +141,7 @@ export default function Ruyani() {
       id: 17,
       img: "images/Rosepetalssoap.png",
       name: "Rose Petals Soap",
-      desc: "Gentle soap with real rose petals",
+      desc: "Gentle rose petals soap that hydrates skin, soothes irritation, and leaves a soft natural glow.",
       price: 110,
       category: "Body Care",
     },
@@ -145,7 +149,7 @@ export default function Ruyani() {
       id: 18,
       img: "images/kumkumadi soap.png",
       name: "Kumkumadi Soap",
-      desc: "Brightening soap with saffron",
+      desc: "Kumkumadi soap enriched with saffron to brighten skin, reduce dullness, and enhance natural glow.",
       price: 110,
       category: "Body Care",
     },
@@ -153,7 +157,7 @@ export default function Ruyani() {
       id: 19,
       img: "images/redwine soap.png",
       name: "Red Wine Soap",
-      desc: "Antioxidant-rich soap with red wine extract",
+      desc: "Red wine soap rich in antioxidants that helps rejuvenate skin and improve overall skin texture.",
       price: 110,
       category: "Body Care",
     },
@@ -161,23 +165,23 @@ export default function Ruyani() {
       id: 20,
       img: "images/pigmentationsoap.png",
       name: "Pigmentation Soap",
-      desc: "Reduces pigmentation & evens skin tone",
+      desc: "Herbal soap that helps reduce pigmentation, even out skin tone, and promote clearer skin.",
       price: 110,
       category: "Body Care",
     },
     {
-      id: 19,
+      id: 21,
       img: "images/lipbalm.png",
       name: "Berry red Lip Balm",
-      desc: "Hydrating lip balm with natural oils",
+      desc: "Infused with natural oils to hydrate, heal dry lips, and give a rich berry tint.",
       price: 160,
       category: "Skin Care",
     },
     {
-      id: 20,
+      id: 22,
       img: "images/beetroot_lipbalm.png",
       name: "Beetroot Lip Balm",
-      desc: "Hydrating lip balm with natural oils",
+      desc: "Enriched with beetroot and natural oils to moisturize, heal dry lips, and enhance natural lip color.",
       price: 160,
       category: "Skin Care",
     },
@@ -281,7 +285,10 @@ export default function Ruyani() {
     <>
       {/* Navbar */}
       <nav className="navbar">
-        <div className="nav-logo">RUYANI NATURALS</div>
+        <div className="nav-logo">
+          <img src="images/favicon.png" alt="Ruyani Naturals Logo" className="nav-logo-icon" />
+          RUYANI NATURALS
+        </div>
 
         <ul className="nav-links">
           <li>
@@ -403,13 +410,21 @@ export default function Ruyani() {
                 .filter((p) => p.category === category)
                 .map((p) => (
                   <div className="product-card" key={p.id}>
+                    {p.badge && <span className="product-badge">{p.badge}</span>}
                     <img src={p.img} alt={p.name} />
                     <div className="product-info">
                       <h3>{p.name}</h3>
+                      <p>{p.desc}</p>
                       <div className="price">Rs. {p.price}</div>
-                      <button className="cta-btn" onClick={() => addToCart(p)}>
-                        Add to Cart
-                      </button>
+                      {p.inStock === false ? (
+                        <button className="cta-btn disabled-btn" disabled>
+                          Out of Stock
+                        </button>
+                      ) : (
+                        <button className="cta-btn" onClick={() => addToCart(p)}>
+                          Add to Cart
+                        </button>
+                      )}
                     </div>
                   </div>
                 ))}
