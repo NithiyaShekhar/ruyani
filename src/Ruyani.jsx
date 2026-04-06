@@ -23,6 +23,14 @@ export default function Ruyani() {
     },
     {
       id: 3,
+      img: "images/sangupoocream.png",
+      name: "Sangupoo face Cream",
+      desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in 7 days.",
+      price: 250,
+      category: "Skin Care",
+    },
+    {
+      id: 4,
       img: "images/kumkumserum.png",
       name: "Kumkumadi Face Serum",
       desc: "Traditional Ayurvedic serum for radiant skin",
@@ -30,7 +38,7 @@ export default function Ruyani() {
       category: "Skin Care",
     },
     {
-      id: 4,
+      id: 5,
       img: "images/darkcircleserum.png",
       name: "Dark Circle Serum",
       desc: "Reduces dark circles & puffiness",
@@ -38,7 +46,7 @@ export default function Ruyani() {
       category: "Skin Care",
     },
     {
-      id: 5,
+      id: 6,
       img: "images/kumkumadifacewash.png",
       name: "Kumkumadi Face Wash",
       desc: "Gentle daily cleanser with herbs",
@@ -46,7 +54,15 @@ export default function Ruyani() {
       category: "Skin Care",
     },
     {
-      id: 6,
+      id: 7,
+      img: "images/coffeefacewash.png",
+      name: "Coffee Glow Face Wash",
+      desc: "Gentle daily cleanser with herbs",
+      price: 195,
+      category: "Skin Care",
+    },
+    {
+      id: 8,
       img: "images/charcoalsoap.png",
       name: "Charcoal Soap",
       desc: "Deep cleansing activated charcoal soap",
@@ -54,7 +70,7 @@ export default function Ruyani() {
       category: "Body Care",
     },
     {
-      id: 7,
+      id: 9,
       img: "images/kuppaimenisoap.png",
       name: "Kuppaimeni Soap",
       desc: "Herbal soap for acne-prone skin",
@@ -62,7 +78,7 @@ export default function Ruyani() {
       category: "Body Care",
     },
     {
-      id: 8,
+      id: 10,
       img: "images/herbal hairoil.png",
       name: "Advanced Hair Regrowth Oil",
       desc: "Strengthens roots & promotes growth",
@@ -70,7 +86,7 @@ export default function Ruyani() {
       category: "Hair Care",
     },
     {
-      id: 9,
+      id: 11,
       img: "images/herbal hairdye.png",
       name: "Organic Herbal Hair Dye",
       desc: "100% chemical-free hair dye",
@@ -78,7 +94,7 @@ export default function Ruyani() {
       category: "Hair Care",
     },
     {
-      id: 10,
+      id: 12,
       img: "images/dandruff oil.png",
       name: "Anti-dandruff Hair Oil",
       desc: "Controls dandruff naturally",
@@ -86,7 +102,7 @@ export default function Ruyani() {
       category: "Hair Care",
     },
     {
-      id: 11,
+      id: 13,
       img: "images/shikakaiHC.png",
       name: "Shikakai Hair Conditioner",
       desc: "Smooth & nourish hair",
@@ -94,7 +110,15 @@ export default function Ruyani() {
       category: "Hair Care",
     },
     {
-      id: 12,
+      id: 14,
+      img: "images/shikakaishampoo.png",
+      name: "Shikakai Shampoo",
+      desc: "Smooth & nourish hair",
+      price: 210,
+      category: "Hair Care",
+    },
+    {
+      id: 15,
       img: "images/MoringaHC.png",
       name: "Moringa Hair Conditioner",
       desc: "Strengthens weak hair",
@@ -102,7 +126,15 @@ export default function Ruyani() {
       category: "Hair Care",
     },
     {
-      id: 13,
+      id: 16,
+      img: "images/moringashampoo.png",
+      name: "Moringa Shampoo",
+      desc: "Strengthens weak hair",
+      price: 210,
+      category: "Hair Care",
+    },
+    {
+      id: 17,
       img: "images/Rosepetalssoap.png",
       name: "Rose Petals Soap",
       desc: "Gentle soap with real rose petals",
@@ -110,7 +142,7 @@ export default function Ruyani() {
       category: "Body Care",
     },
     {
-      id: 14,
+      id: 18,
       img: "images/kumkumadi soap.png",
       name: "Kumkumadi Soap",
       desc: "Brightening soap with saffron",
@@ -118,7 +150,7 @@ export default function Ruyani() {
       category: "Body Care",
     },
     {
-      id: 15,
+      id: 19,
       img: "images/redwine soap.png",
       name: "Red Wine Soap",
       desc: "Antioxidant-rich soap with red wine extract",
@@ -126,7 +158,7 @@ export default function Ruyani() {
       category: "Body Care",
     },
     {
-      id: 16,
+      id: 20,
       img: "images/pigmentationsoap.png",
       name: "Pigmentation Soap",
       desc: "Reduces pigmentation & evens skin tone",
@@ -134,9 +166,17 @@ export default function Ruyani() {
       category: "Body Care",
     },
     {
-      id: 17,
+      id: 19,
       img: "images/lipbalm.png",
-      name: "Natural Lip Balm",
+      name: "Berry red Lip Balm",
+      desc: "Hydrating lip balm with natural oils",
+      price: 160,
+      category: "Skin Care",
+    },
+    {
+      id: 20,
+      img: "images/beetroot_lipbalm.png",
+      name: "Beetroot Lip Balm",
       desc: "Hydrating lip balm with natural oils",
       price: 160,
       category: "Skin Care",
@@ -442,7 +482,7 @@ export default function Ruyani() {
           </div>
           <div className="feature">
             <h3>Cruelty-Free & Vegan</h3>
-            <p>Never tested on animals</p>
+            <p>We never test on animals and use only plant-based ingredients.</p>
           </div>
           <div className="feature">
             <h3>Handmade with Love</h3>
