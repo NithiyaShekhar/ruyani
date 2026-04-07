@@ -9,7 +9,7 @@ export default function Ruyani() {
       id: 1,
       img: "images/kumcream.png",
       name: "Kumkumadi Cream",
-      desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in 7 days.",
+      desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in few days.",
       price: 250,
       category: "Skin Care",
       badge: "Best Seller",
@@ -239,10 +239,12 @@ export default function Ruyani() {
   };
 
   const decreaseQty = (id) => {
-    setCart(
-      cart.map((item) =>
-        item.id === id && item.qty > 1 ? { ...item, qty: item.qty - 1 } : item
-      )
+    setCart((prevCart) =>
+      prevCart
+        .map((item) =>
+          item.id === id ? { ...item, qty: item.qty - 1 } : item
+        )
+        .filter((item) => item.qty > 0)
     );
   };
 
@@ -286,7 +288,7 @@ export default function Ruyani() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-logo">
-          <img src="images/favicon.png" alt="Ruyani Naturals Logo" className="nav-logo-icon" />
+          <img src="images/fav.png" alt="Ruyani Naturals Logo" className="nav-logo-icon" />
           RUYANI NATURALS
         </div>
 
@@ -420,6 +422,15 @@ export default function Ruyani() {
                         <button className="cta-btn disabled-btn" disabled>
                           Out of Stock
                         </button>
+                      ) : cart.find((item) => item.id === p.id) ? (
+                        <div className="cart-added-controls">
+                          <span className="added-text">Added ✓</span>
+                          <div className="inline-qty">
+                            <button onClick={() => decreaseQty(p.id)}>-</button>
+                            <span className="qty-count">{cart.find(item => item.id === p.id).qty}</span>
+                            <button onClick={() => increaseQty(p.id)}>+</button>
+                          </div>
+                        </div>
                       ) : (
                         <button className="cta-btn" onClick={() => addToCart(p)}>
                           Add to Cart
@@ -510,7 +521,20 @@ export default function Ruyani() {
       <footer>
         <h2>Ruyani</h2>
         <p>Handmade Natural Cosmetics • Made with Love</p>
-        <p>Contact: hello@ruyani.com | +91-9629888703</p>
+        <p>Contact: +91-9629888703</p>
+        <a 
+          href="https://www.instagram.com/ruyani2025/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ color: '#D1DACF', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', margin: '15px 0' }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          @ruyani2025
+        </a>
         <p>© 2025 Ruyani. All rights reserved.</p>
       </footer>
     </>
