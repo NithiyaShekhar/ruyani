@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const WHATSAPP_NUMBER = "919629888703";
 
-export default function Ruyani() {
-  const products = [
+export const products = [
     {
       id: 1,
       img: "images/kumcream.png",
@@ -13,6 +13,12 @@ export default function Ruyani() {
       price: 250,
       category: "Skin Care",
       badge: "Best Seller",
+      features: [
+        "Handmade with authentic real saffron",
+        "Visibly brightens and adds a natural glow",
+        "Deeply moisturizes and improves skin texture",
+        "Free from artificial colors and harmful chemicals"
+      ]
     },
     {
       id: 2,
@@ -22,6 +28,12 @@ export default function Ruyani() {
       price: 220,
       category: "Skin Care",
       inStock: false,
+      features: [
+        "Gently exfoliates dead skin cells",
+        "Removes deep-seated impurities and blackheads",
+        "Instantly brightens dull complexion",
+        "Made with 100% natural scrubbing agents"
+      ]
     },
     {
       id: 3,
@@ -30,6 +42,12 @@ export default function Ruyani() {
       desc: "Herbal Sangupoo face cream enriched with natural ingredients to nourish, brighten, and give a healthy glowing skin.",
       price: 250,
       category: "Skin Care",
+      features: [
+        "Enriched with rare Sangupoo (Butterfly Pea) extracts",
+        "Nourishes dry skin and provides lasting hydration",
+        "Promotes a healthy, radiant complexion",
+        "Lightweight formula suitable for daily use"
+      ]
     },
     {
       id: 4,
@@ -38,6 +56,12 @@ export default function Ruyani() {
       desc: "Enriched with traditional kumkumadi ingredients to brighten skin, reduce dark spots, and boost radiance.",
       price: 250,
       category: "Skin Care",
+      features: [
+        "Traditional Ayurvedic formulation",
+        "Fades dark spots, pigmentation, and blemishes",
+        "Boosts skin elasticity and natural radiance",
+        "Absorbs quickly without leaving a greasy residue"
+      ]
     },
     {
       id: 5,
@@ -47,6 +71,12 @@ export default function Ruyani() {
       price: 199,
       category: "Skin Care",
       inStock: false,
+      features: [
+        "Specifically formulated for delicate under-eye skin",
+        "Effectively lightens dark circles and pigmentation",
+        "Reduces morning puffiness and eye bags",
+        "Cooling effect instantly refreshes tired eyes"
+      ]
     },
     {
       id: 6,
@@ -55,6 +85,12 @@ export default function Ruyani() {
       desc: "Enriched with kumkumadi ingredients to brighten skin, remove impurities, and give a radiant glow.",
       price: 195,
       category: "Skin Care",
+      features: [
+        "Gentle daily cleanser with Kumkumadi benefits",
+        "Thoroughly removes dirt, oil, and makeup",
+        "Leaves skin soft, bright, and glowing",
+        "Maintains the skin's natural moisture balance"
+      ]
     },
     {
       id: 7,
@@ -63,6 +99,12 @@ export default function Ruyani() {
       desc: "Energizing coffee face wash that deeply cleanses, removes excess oil, and gives an instant natural glow.",
       price: 195,
       category: "Skin Care",
+      features: [
+        "Energizing coffee extracts wake up tired skin",
+        "Deeply cleanses pores and removes excess oil",
+        "Antioxidant-rich formula fights free radicals",
+        "Provides an instant natural glow after every wash"
+      ]
     },
     {
       id: 8,
@@ -71,6 +113,12 @@ export default function Ruyani() {
       desc: "Activated charcoal soap that deeply cleanses pores, removes impurities, and leaves skin fresh and clear.",
       price: 110,
       category: "Body Care",
+      features: [
+        "Activated charcoal draws out deep-pore toxins",
+        "Effectively controls excess oil and sebum",
+        "Helps prevent acne and body breakouts",
+        "Leaves skin feeling exceptionally fresh and clear"
+      ]
     },
     {
       id: 9,
@@ -79,6 +127,12 @@ export default function Ruyani() {
       desc: "Herbal kuppaimeni soap that helps reduce acne, soothe skin, and promote a clear, healthy complexion.",
       price: 110,
       category: "Body Care",
+      features: [
+        "Traditional Kuppaimeni herb effectively fights acne",
+        "Possesses natural anti-bacterial and soothing properties",
+        "Helps clear skin rashes and minor irritations",
+        "Promotes a clearer, healthier, and even complexion"
+      ]
     },
     {
       id: 10,
@@ -87,6 +141,12 @@ export default function Ruyani() {
       desc: "Powerful herbal oil that strengthens roots, reduces hair fall, and supports healthy hair regrowth.",
       price: 210,
       category: "Hair Care",
+      features: [
+        "Potent herbal blend stimulates dormant hair follicles",
+        "Strengthens hair roots to significantly reduce hair fall",
+        "Supports thicker, healthier, and faster hair regrowth",
+        "Improves scalp blood circulation naturally"
+      ]
     },
     {
       id: 11,
@@ -96,6 +156,12 @@ export default function Ruyani() {
       price: 280,
       category: "Hair Care",
       badge: "Best Seller",
+      features: [
+        "100% chemical-free, organic herbal hair color",
+        "Safely covers gray hair without damaging strands",
+        "Simultaneously acts as a deep hair conditioner",
+        "Contains zero ammonia, PPD, or harsh synthetics"
+      ]
     },
     {
       id: 12,
@@ -104,6 +170,12 @@ export default function Ruyani() {
       desc: "Herbal oil that controls dandruff, soothes itchy scalp, and keeps hair healthy and flake-free.",
       price: 220,
       category: "Hair Care",
+      features: [
+        "Effectively targets root causes of persistent dandruff",
+        "Instantly soothes itchy and irritated scalp",
+        "Maintains a healthy, clean, and flake-free scalp",
+        "Infused with potent anti-microbial herbal extracts"
+      ]
     },
     {
       id: 13,
@@ -112,6 +184,12 @@ export default function Ruyani() {
       desc: "Nourishing conditioner with shikakai that smooths hair, reduces frizz, and adds natural shine.",
       price: 199,
       category: "Hair Care",
+      features: [
+        "Ancient Shikakai recipe for modern hair care",
+        "Deeply conditions and smooths rough hair texture",
+        "Controls frizz naturally and prevents tangling",
+        "Adds a brilliant, healthy natural shine"
+      ]
     },
     {
       id: 14,
@@ -120,6 +198,12 @@ export default function Ruyani() {
       desc: "Enriched with shikakai to cleanse naturally, reduce dandruff, and leave hair smooth, soft, and healthy.",
       price: 210,
       category: "Hair Care",
+      features: [
+        "Natural cleansing properties of Shikakai extract",
+        "Gently cleanses scalp without stripping natural oils",
+        "Helps keep dandruff at bay with regular use",
+        "Leaves hair extremely soft, bouncy, and manageable"
+      ]
     },
     {
       id: 15,
@@ -128,6 +212,12 @@ export default function Ruyani() {
       desc: "Moringa conditioner that strengthens weak hair, reduces breakage, and leaves hair soft and manageable.",
       price: 199,
       category: "Hair Care",
+      features: [
+        "Nutrient-dense Moringa superfood strengthens weak strands",
+        "Significantly reduces hair breakage and split ends",
+        "Deeply hydrates to leave hair silky soft",
+        "Protects hair from environmental damages"
+      ]
     },
     {
       id: 16,
@@ -136,6 +226,12 @@ export default function Ruyani() {
       desc: "Enriched with moringa extracts to strengthen roots, control hair fall, and leave hair soft and healthy.",
       price: 210,
       category: "Hair Care",
+      features: [
+        "Packed with Moringa vitamins and minerals",
+        "Strengthens hair roots and improves overall hair health",
+        "Helps control hair fall caused by breakage",
+        "Leaves hair feeling clean, strong, and revitalized"
+      ]
     },
     {
       id: 17,
@@ -144,6 +240,12 @@ export default function Ruyani() {
       desc: "Gentle rose petals soap that hydrates skin, soothes irritation, and leaves a soft natural glow.",
       price: 110,
       category: "Body Care",
+      features: [
+        "Infused with real, gentle rose petal extracts",
+        "Deeply hydrates and locks moisture into the skin",
+        "Soothes sensitive skin and mild irritations",
+        "Imparts a soft, romantic natural glow and scent"
+      ]
     },
     {
       id: 18,
@@ -152,6 +254,12 @@ export default function Ruyani() {
       desc: "Kumkumadi soap enriched with saffron to brighten skin, reduce dullness, and enhance natural glow.",
       price: 110,
       category: "Body Care",
+      features: [
+        "Luxurious soap crafted with saffron and Kumkumadi oil",
+        "Works to actively brighten dull and tired skin",
+        "Enhances natural skin glow upon regular use",
+        "Leaves a rich, luxurious feeling after every bath"
+      ]
     },
     {
       id: 19,
@@ -160,6 +268,12 @@ export default function Ruyani() {
       desc: "Red wine soap rich in antioxidants that helps rejuvenate skin and improve overall skin texture.",
       price: 110,
       category: "Body Care",
+      features: [
+        "Rich in red wine antioxidants (Resveratrol)",
+        "Fights aging signs and rejuvenates mature skin",
+        "Improves and smooths overall uneven skin texture",
+        "Provides a luxurious, spa-like bathing experience"
+      ]
     },
     {
       id: 20,
@@ -168,6 +282,12 @@ export default function Ruyani() {
       desc: "Herbal soap that helps reduce pigmentation, even out skin tone, and promote clearer skin.",
       price: 110,
       category: "Body Care",
+      features: [
+        "Special herbal blend targets dark spots and marks",
+        "Actively helps reduce skin hyper-pigmentation",
+        "Evens out patchy skin tone over time",
+        "Promotes a beautifully clear and uniform complexion"
+      ]
     },
     {
       id: 21,
@@ -176,6 +296,12 @@ export default function Ruyani() {
       desc: "Infused with natural oils to hydrate, heal dry lips, and give a rich berry tint.",
       price: 160,
       category: "Skin Care",
+      features: [
+        "Deeply hydrates and heals chapped, dry lips",
+        "Infused with nourishing natural plant oils",
+        "Provides a gorgeous, rich berry red tint",
+        "Protects lips from harsh weather conditions"
+      ]
     },
     {
       id: 22,
@@ -184,8 +310,16 @@ export default function Ruyani() {
       desc: "Enriched with beetroot and natural oils to moisturize, heal dry lips, and enhance natural lip color.",
       price: 160,
       category: "Skin Care",
-    },
+      features: [
+        "Natural beetroot extracts enhance natural lip color",
+        "Effectively moisturizes and prevents lip drying",
+        "Helps lighten dark lips with regular application",
+        "100% natural, safe to use daily"
+      ]
+    }
   ];
+
+export default function Ruyani() {
   const [cart, setCart] = useState(() => {
     const saved = localStorage.getItem("ruyani_cart");
     return saved ? JSON.parse(saved) : [];
@@ -413,9 +547,13 @@ export default function Ruyani() {
                 .map((p) => (
                   <div className="product-card" key={p.id}>
                     {p.badge && <span className="product-badge">{p.badge}</span>}
-                    <img src={p.img} alt={p.name} />
+                    <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <img src={p.img} alt={p.name} />
+                    </Link>
                     <div className="product-info">
-                      <h3>{p.name}</h3>
+                      <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <h3>{p.name}</h3>
+                      </Link>
                       <p>{p.desc}</p>
                       <div className="price">Rs. {p.price}</div>
                       {p.inStock === false ? (
