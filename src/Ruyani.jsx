@@ -56,6 +56,7 @@ export const products = [
       desc: "Enriched with traditional kumkumadi ingredients to brighten skin, reduce dark spots, and boost radiance.",
       price: 250,
       category: "Skin Care",
+      inStock: false,
       features: [
         "Traditional Ayurvedic formulation",
         "Fades dark spots, pigmentation, and blemishes",
@@ -127,6 +128,7 @@ export const products = [
       desc: "Herbal kuppaimeni soap that helps reduce acne, soothe skin, and promote a clear, healthy complexion.",
       price: 110,
       category: "Body Care",
+      inStock: false,
       features: [
         "Traditional Kuppaimeni herb effectively fights acne",
         "Possesses natural anti-bacterial and soothing properties",
@@ -184,6 +186,7 @@ export const products = [
       desc: "Nourishing conditioner with shikakai that smooths hair, reduces frizz, and adds natural shine.",
       price: 199,
       category: "Hair Care",
+      inStock: false,
       features: [
         "Ancient Shikakai recipe for modern hair care",
         "Deeply conditions and smooths rough hair texture",
@@ -282,6 +285,7 @@ export const products = [
       desc: "Herbal soap that helps reduce pigmentation, even out skin tone, and promote clearer skin.",
       price: 110,
       category: "Body Care",
+      inStock: false,
       features: [
         "Special herbal blend targets dark spots and marks",
         "Actively helps reduce skin hyper-pigmentation",
@@ -310,6 +314,7 @@ export const products = [
       desc: "Enriched with beetroot and natural oils to moisturize, heal dry lips, and enhance natural lip color.",
       price: 160,
       category: "Skin Care",
+      inStock: false,
       features: [
         "Natural beetroot extracts enhance natural lip color",
         "Effectively moisturizes and prevents lip drying",
@@ -320,6 +325,24 @@ export const products = [
   ];
 
 export default function Ruyani() {
+  const customerFeedback = [
+    {
+      name: "Priya S.",
+      message:
+        "My skin feels softer and brighter within a week. The Kumkumadi Cream is now part of my daily routine."
+    },
+    {
+      name: "Meena R.",
+      message:
+        "I love how gentle these products are. The face wash and lip balm worked really well for my sensitive skin."
+    },
+    {
+      name: "Karthika M.",
+      message:
+        "The quality feels premium and natural. Fast delivery and great support on WhatsApp too."
+    }
+  ];
+
   const [cart, setCart] = useState(() => {
     const saved = localStorage.getItem("ruyani_cart");
     return saved ? JSON.parse(saved) : [];
@@ -581,6 +604,20 @@ export default function Ruyani() {
           </div>
         ))}
       </section>
+
+      {/* Feedback */}
+      <section className="feedback-section">
+        <h2>Feedback Received from Customers</h2>
+        <div className="feedback-grid">
+          {customerFeedback.map((feedback, index) => (
+            <article className="feedback-card" key={index}>
+              <p>"{feedback.message}"</p>
+              <h4>- {feedback.name}</h4>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Overlay */}
       {isCartOpen && (
         <div className="overlay" onClick={() => setIsCartOpen(false)}></div>
