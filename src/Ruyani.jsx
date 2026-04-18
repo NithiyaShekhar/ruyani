@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "./CartContext";
 import "./style.css";
 
 const WHATSAPP_NUMBER = "919629888703";
@@ -23,7 +24,7 @@ export const products = [
     {
       id: 2,
       img: "images/Scrub.png",
-      name: "Face Brightening Scrub",
+      name: "Face Brightening Scrub",      
       desc: "Natural exfoliating scrub that removes impurities, reduces dullness, and enhances your skin’s glow.",
       price: 220,
       category: "Skin Care",
@@ -56,7 +57,7 @@ export const products = [
       desc: "Enriched with traditional kumkumadi ingredients to brighten skin, reduce dark spots, and boost radiance.",
       price: 250,
       category: "Skin Care",
-      inStock: false,
+      // inStock: false,
       features: [
         "Traditional Ayurvedic formulation",
         "Fades dark spots, pigmentation, and blemishes",
@@ -128,7 +129,6 @@ export const products = [
       desc: "Herbal kuppaimeni soap that helps reduce acne, soothe skin, and promote a clear, healthy complexion.",
       price: 110,
       category: "Body Care",
-      inStock: false,
       features: [
         "Traditional Kuppaimeni herb effectively fights acne",
         "Possesses natural anti-bacterial and soothing properties",
@@ -215,6 +215,7 @@ export const products = [
       desc: "Moringa conditioner that strengthens weak hair, reduces breakage, and leaves hair soft and manageable.",
       price: 199,
       category: "Hair Care",
+      inStock: false, 
       features: [
         "Nutrient-dense Moringa superfood strengthens weak strands",
         "Significantly reduces hair breakage and split ends",
@@ -314,7 +315,7 @@ export const products = [
       desc: "Enriched with beetroot and natural oils to moisturize, heal dry lips, and enhance natural lip color.",
       price: 160,
       category: "Skin Care",
-      inStock: false,
+      // inStock: false,
       features: [
         "Natural beetroot extracts enhance natural lip color",
         "Effectively moisturizes and prevents lip drying",
@@ -340,105 +341,37 @@ export default function Ruyani() {
       name: "Karthika M.",
       message:
         "The quality feels premium and natural. Fast delivery and great support on WhatsApp too."
+    },
+    {
+      name: "Sowmya V.",
+      message:
+        "The Berry Red Lip Balm is my absolute favorite! It heals chapped lips while adding a beautiful tint."
+    },
+    {
+      name: "Anita P.",
+      message:
+        "I have been using the Advanced Hair Regrowth Oil and I can see visible reduction in my hair fall."
+    },
+    {
+      name: "Revathi K.",
+      message:
+        "Absolutely in love with the Red Wine Soap. Leaves my skin feeling so fresh and rejuvenated after every bath."
     }
   ];
 
-  const [cart, setCart] = useState(() => {
-    const saved = localStorage.getItem("ruyani_cart");
-    return saved ? JSON.parse(saved) : [];
-  });
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const {
+    cart,
+    isCartOpen,
+    setIsCartOpen,
+    addToCart,
+    increaseQty,
+    decreaseQty,
+    removeItem,
+    getTotal,
+    whatsappCheckout
+  } = useCart();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
-
-  useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
-  useEffect(() => {
-    const savedCart = localStorage.getItem("ruyani_cart");
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("ruyani_cart", JSON.stringify(cart));
-  }, [cart]);
-
-  const addToCart = (product) => {
-    setCart((prev) => {
-      const exist = prev.find((item) => item.id === product.id);
-
-      if (exist) {
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
-        );
-      }
-
-      return [...prev, { ...product, qty: 1 }];
-    });
-  };
-
-  const increaseQty = (id) => {
-    setCart(
-      cart.map((item) =>
-        item.id === id ? { ...item, qty: item.qty + 1 } : item
-      )
-    );
-  };
-
-  const decreaseQty = (id) => {
-    setCart((prevCart) =>
-      prevCart
-        .map((item) =>
-          item.id === id ? { ...item, qty: item.qty - 1 } : item
-        )
-        .filter((item) => item.qty > 0)
-    );
-  };
-
-  const removeItem = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
-  };
-
-  const getTotal = () =>
-    cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-
-  const whatsappCheckout = () => {
-    const message = cart
-      .map(
-        (item, i) =>
-          `${i + 1}. ${item.name} (Qty: ${item.qty}) - Rs.${
-            item.price * item.qty
-          }`
-      )
-      .join("\n");
-
-    const finalMessage = `Hello Ruyani,
-  
-  I would like to order:
-  
-  ${message}
-  
-  Total: Rs.${getTotal()}
-  
-  Please confirm availability.`;
-
-    const encodedMessage = encodeURIComponent(finalMessage);
-
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`,
-      "_blank"
-    );
-  };
 
   return (
     <>
@@ -608,13 +541,23 @@ export default function Ruyani() {
       {/* Feedback */}
       <section className="feedback-section">
         <h2>Feedback Received from Customers</h2>
-        <div className="feedback-grid">
-          {customerFeedback.map((feedback, index) => (
-            <article className="feedback-card" key={index}>
-              <p>"{feedback.message}"</p>
-              <h4>- {feedback.name}</h4>
-            </article>
-          ))}
+        <div className="feedback-marquee-wrapper">
+          <div className="feedback-marquee">
+            {customerFeedback.map((feedback, index) => (
+              <article className="feedback-card" key={`original-${index}`}>
+                <p>"{feedback.message}"</p>
+                <h4>- {feedback.name}</h4>
+              </article>
+            ))}
+          </div>
+          <div className="feedback-marquee" aria-hidden="true">
+            {customerFeedback.map((feedback, index) => (
+              <article className="feedback-card" key={`duplicate-${index}`}>
+                <p>"{feedback.message}"</p>
+                <h4>- {feedback.name}</h4>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

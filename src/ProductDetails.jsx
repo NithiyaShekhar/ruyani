@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { products } from "./Ruyani";
+import { useCart } from "./CartContext";
 import "./style.css";
 
 export default function ProductDetails() {
   const { id } = useParams();
+  const { cart, isCartOpen, setIsCartOpen, addToCart, increaseQty, decreaseQty, removeItem, getTotal, whatsappCheckout } = useCart();
   const product = products.find((p) => p.id === parseInt(id));
 
   useEffect(() => {
@@ -33,6 +35,27 @@ export default function ProductDetails() {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <div className="cart-icon" onClick={() => setIsCartOpen(true)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+
+            {cart.length > 0 && (
+              <span className="cart-badge">{cart.length}</span>
+            )}
+          </div>
         </ul>
       </nav>
 
@@ -75,18 +98,92 @@ export default function ProductDetails() {
             </ul>
           </div>
           
+          {product.inStock === false ? (
+            <button className="cta-btn disabled-btn" disabled style={{ marginTop: "20px", width: "fit-content", padding: "12px 30px", fontSize: "18px" }}>
+              Out of Stock
+            </button>
+          ) : cart.find((item) => item.id === product.id) ? (
+            <div className="cart-added-controls" style={{ marginTop: "20px", marginBottom: "20px", display: "inline-flex" }}>
+              <span className="added-text" style={{ fontSize: "18px", padding: "12px 20px" }}>Added ✓</span>
+              <div className="inline-qty" style={{ height: "48px" }}>
+                <button onClick={() => decreaseQty(product.id)} style={{ width: "40px", fontSize: "20px" }}>-</button>
+                <span className="qty-count" style={{ width: "40px", fontSize: "18px" }}>{cart.find(item => item.id === product.id).qty}</span>
+                <button onClick={() => increaseQty(product.id)} style={{ width: "40px", fontSize: "20px" }}>+</button>
+              </div>
+            </div>
+          ) : (
+            <button className="cta-btn" onClick={() => addToCart(product)} style={{ marginTop: "20px", width: "fit-content", padding: "12px 30px", fontSize: "18px", cursor: "pointer" }}>
+              Add to Cart
+            </button>
+          )}
+
           <Link to="/" className="cta-btn" style={{ 
             width: "fit-content", 
             textDecoration: "none", 
-            marginTop: "20px", 
+            marginTop: "10px", 
             display: "inline-block", 
             textAlign: "center",
             padding: "12px 30px",
-            fontSize: "18px"
+            fontSize: "18px",
+            backgroundColor: "#99663E",
+            color: "#fff",
+            border: "1px solid var(--primary-color)"
           }}>
             Back to Products
           </Link>
         </div>
+      </div>
+      
+      {/* Overlay */}
+      {isCartOpen && (
+        <div className="overlay" onClick={() => setIsCartOpen(false)}></div>
+      )}
+
+      {/* Cart Drawer */}
+      <div className={`cart-drawer ${isCartOpen ? "open" : ""}`}>
+        <div className="cart-header">
+          <h3>Your Cart</h3>
+          <button onClick={() => setIsCartOpen(false)}>✕</button>
+        </div>
+
+        {cart.length === 0 ? (
+          <p className="empty-cart">Your cart is empty</p>
+        ) : (
+          <>
+            {cart.map((item) => (
+              <div key={item.id} className="cart-item">
+                <img src={`/${item.img}`} alt={item.name} className="cart-item-img" />
+
+                <div className="cart-item-details">
+                  <h4>{item.name}</h4>
+                  <p>
+                    {item.qty} × ₹{item.price}
+                  </p>
+
+                  <div className="qty-controls">
+                    <button onClick={() => decreaseQty(item.id)}>-</button>
+                    <span>{item.qty}</span>
+                    <button onClick={() => increaseQty(item.id)}>+</button>
+                  </div>
+                </div>
+
+                <button
+                  className="remove-btn"
+                  onClick={() => removeItem(item.id)}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+
+            <div className="cart-footer">
+              <h4>Total: Rs. {getTotal()}</h4>
+              <button className="checkout-btn" onClick={whatsappCheckout}>
+                Checkout on WhatsApp
+              </button>
+            </div>
+          </>
+        )}
       </div>
       
       {/* Footer */}
