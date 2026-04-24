@@ -322,7 +322,37 @@ export const products = [
         "Helps lighten dark lips with regular application",
         "100% natural, safe to use daily"
       ]
-    }
+    },
+    {
+      id: 23,
+      img: "images/hairpack.png",
+      name: "Herbal Hairpack",
+      desc: "A nourishing herbal hair pack that strengthens roots, controls hair fall, and restores natural shine.",
+      price: 80,
+      category: "Hair Care",
+      badge: "New Arrival",
+      features: [
+        "Powerful blend of natural herbs to intensely nourish the scalp",
+        "Strengthens hair from root to tip to significantly reduce hair fall",
+        "Restores dull hair by adding natural shine and bounce",
+        "100% natural, chemical-free, and suitable for all hair types"
+      ]
+    },
+    {
+      id: 24,
+      img: "images/bodymoisturizer.png",
+      name: "Almond Body Moisturizer",
+      desc: "Deeply hydrating almond body moisturizer that leaves skin soft, smooth, and nourished all day long.",
+      price: 250,
+      category: "Body Care",
+      // badge: "New Arrival",
+      features: [
+        "Enriched with sweet almond oil for deep, long-lasting hydration",
+        "Absorbs quickly without leaving a greasy or sticky residue",
+        "Improves skin elasticity and restores natural softness",
+        "Perfect for all skin types, including dry and sensitive skin"
+      ]
+    },
   ];
 
 export default function Ruyani() {
@@ -338,17 +368,22 @@ export default function Ruyani() {
         "I love how gentle these products are. The face wash and lip balm worked really well for my sensitive skin."
     },
     {
+      name: "Vidhya",
+      message:
+        "Hi Nithya, I have started using Sangupoovu face cream.  Iam using this cream at night. Excellent hydration, fast absorbing and I can feel the smoothness in skin.  Worth buying this product."
+    },
+    {
       name: "Karthika M.",
       message:
         "The quality feels premium and natural. Fast delivery and great support on WhatsApp too."
     },
     {
-      name: "Sowmya V.",
+      name: "Devi",
       message:
-        "The Berry Red Lip Balm is my absolute favorite! It heals chapped lips while adding a beautiful tint."
+        "Hi Nitya tried organic hair dye , the dye is gentle on my hair and colour is good and Shikakai shampoo is also super nourishing .Hair feels healthy and looks great ."
     },
     {
-      name: "Anita P.",
+      name: "Bindhu",
       message:
         "I have been using the Advanced Hair Regrowth Oil and I can see visible reduction in my hair fall."
     },
