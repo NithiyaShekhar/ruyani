@@ -19,6 +19,12 @@ export const products = [
         "Visibly brightens and adds a natural glow",
         "Deeply moisturizes and improves skin texture",
         "Free from artificial colors and harmful chemicals"
+      ],
+      howToUse: [
+        "Cleanse your face thoroughly.",
+        "Take a pea-sized amount of Kumkumadi Cream.",
+        "Massage gently in upward circular motions.",
+        "Use daily at night for best results."  
       ]
     },
     {
@@ -34,6 +40,12 @@ export const products = [
         "Removes deep-seated impurities and blackheads",
         "Instantly brightens dull complexion",
         "Made with 100% natural scrubbing agents"
+      ],
+      howToUse: [
+        "Wet your face with warm water.",
+        "Apply a small amount of scrub.",
+        "Gently massage in circular motions for 1-2 minutes.",
+        "Rinse off thoroughly and pat dry. Use 2-3 times a week."
       ]
     },
     {
@@ -43,11 +55,18 @@ export const products = [
       desc: "Herbal Sangupoo face cream enriched with natural ingredients to nourish, brighten, and give a healthy glowing skin.",
       price: 250,
       category: "Skin Care",
+      inStock: false,
       features: [
         "Enriched with rare Sangupoo (Butterfly Pea) extracts",
         "Nourishes dry skin and provides lasting hydration",
         "Promotes a healthy, radiant complexion",
         "Lightweight formula suitable for daily use"
+      ],
+      howToUse: [
+        "Cleanse face and pat dry.",
+        "Apply an even layer of Sangupoo face cream.",
+        "Gently massage until fully absorbed.",
+        "Can be used day and night."
       ]
     },
     {
@@ -63,6 +82,12 @@ export const products = [
         "Fades dark spots, pigmentation, and blemishes",
         "Boosts skin elasticity and natural radiance",
         "Absorbs quickly without leaving a greasy residue"
+      ],
+      howToUse: [
+        "Wash and dry your face.",
+        "Take 3-4 drops of the serum.",
+        "Gently dab it onto your face and neck.",
+        "Leave it overnight and wash off in the morning."
       ]
     },
     {
@@ -78,6 +103,12 @@ export const products = [
         "Effectively lightens dark circles and pigmentation",
         "Reduces morning puffiness and eye bags",
         "Cooling effect instantly refreshes tired eyes"
+      ],
+      howToUse: [
+        "Cleanse your face.",
+        "Take a drop of serum on your ring finger.",
+        "Gently dab around the under-eye area.",
+        "Use every night before sleeping."
       ]
     },
     {
@@ -92,6 +123,12 @@ export const products = [
         "Thoroughly removes dirt, oil, and makeup",
         "Leaves skin soft, bright, and glowing",
         "Maintains the skin's natural moisture balance"
+      ],
+      howToUse: [
+        "Wet your face and neck.",
+        "Take a small amount of face wash and lather it up.",
+        "Massage gently in circular motions.",
+        "Rinse thoroughly with water and pat dry."
       ]
     },
     {
@@ -106,6 +143,12 @@ export const products = [
         "Deeply cleanses pores and removes excess oil",
         "Antioxidant-rich formula fights free radicals",
         "Provides an instant natural glow after every wash"
+      ],
+      howToUse: [
+        "Wet face with lukewarm water.",
+        "Apply a dime-sized amount of the coffee glow face wash.",
+        "Gently massage for 30-60 seconds.",
+        "Rinse thoroughly and pat dry."
       ]
     },
     {
@@ -120,6 +163,12 @@ export const products = [
         "Effectively controls excess oil and sebum",
         "Helps prevent acne and body breakouts",
         "Leaves skin feeling exceptionally fresh and clear"
+      ],
+      howToUse: [
+        "Wet the soap and lather it in your hands.",
+        "Apply the lather to your face and body.",
+        "Gently massage to cleanse.",
+        "Rinse thoroughly with water."
       ]
     },
     {
@@ -134,6 +183,12 @@ export const products = [
         "Possesses natural anti-bacterial and soothing properties",
         "Helps clear skin rashes and minor irritations",
         "Promotes a clearer, healthier, and even complexion"
+      ],
+      howToUse: [
+        "Lather the soap with water.",
+        "Apply to areas prone to acne or rashes.",
+        "Massage gently for a minute.",
+        "Rinse off well."
       ]
     },
     {
@@ -148,6 +203,12 @@ export const products = [
         "Strengthens hair roots to significantly reduce hair fall",
         "Supports thicker, healthier, and faster hair regrowth",
         "Improves scalp blood circulation naturally"
+      ],
+      howToUse: [
+        "Section your hair and apply the oil directly to the scalp.",
+        "Gently massage for 5-10 minutes.",
+        "Leave it on for at least 2 hours or overnight.",
+        "Wash off with a mild shampoo."
       ]
     },
     {
@@ -163,6 +224,12 @@ export const products = [
         "Safely covers gray hair without damaging strands",
         "Simultaneously acts as a deep hair conditioner",
         "Contains zero ammonia, PPD, or harsh synthetics"
+      ],
+      howToUse: [
+        "Mix the dye powder with warm water to make a paste.",
+        "Apply evenly from roots to tips on clean, dry hair.",
+        "Leave it on for 1-2 hours.",
+        "Rinse thoroughly with water."
       ]
     },
     {
@@ -177,6 +244,12 @@ export const products = [
         "Instantly soothes itchy and irritated scalp",
         "Maintains a healthy, clean, and flake-free scalp",
         "Infused with potent anti-microbial herbal extracts"
+      ],
+      howToUse: [
+        "Part your hair and applying oil to the scalp.",
+        "Massage gently in circular motions.",
+        "Leave for at least 1 hour.",
+        "Wash off using a mild shampoo."
       ]
     },
     {
@@ -192,6 +265,12 @@ export const products = [
         "Deeply conditions and smooths rough hair texture",
         "Controls frizz naturally and prevents tangling",
         "Adds a brilliant, healthy natural shine"
+      ],
+      howToUse: [
+        "After shampooing, apply conditioner from mid-lengths to ends.",
+        "Avoid applying directly to the scalp.",
+        "Leave it on for 2-3 minutes.",
+        "Rinse thoroughly with water."
       ]
     },
     {
@@ -206,6 +285,12 @@ export const products = [
         "Gently cleanses scalp without stripping natural oils",
         "Helps keep dandruff at bay with regular use",
         "Leaves hair extremely soft, bouncy, and manageable"
+      ],
+      howToUse: [
+        "Wet your hair completely.",
+        "Take appropriate amount of shampoo and lather.",
+        "Massage onto scalp and hair.",
+        "Rinse thoroughly."
       ]
     },
     {
@@ -221,6 +306,12 @@ export const products = [
         "Significantly reduces hair breakage and split ends",
         "Deeply hydrates to leave hair silky soft",
         "Protects hair from environmental damages"
+      ],
+      howToUse: [
+        "Apply after washing hair with Moringa shampoo.",
+        "Distribute evenly through mid-lengths to the ends.",
+        "Leave for 2-3 minutes.",
+        "Rinse thoroughly."
       ]
     },
     {
@@ -235,6 +326,12 @@ export const products = [
         "Strengthens hair roots and improves overall hair health",
         "Helps control hair fall caused by breakage",
         "Leaves hair feeling clean, strong, and revitalized"
+      ],
+      howToUse: [
+        "Wet your hair thoroughly.",
+        "Apply the shampoo and massage into the scalp.",
+        "Work into a rich lather.",
+        "Rinse well with water."
       ]
     },
     {
@@ -249,6 +346,12 @@ export const products = [
         "Deeply hydrates and locks moisture into the skin",
         "Soothes sensitive skin and mild irritations",
         "Imparts a soft, romantic natural glow and scent"
+      ],
+      howToUse: [
+        "Wet the soap to create a rich lather.",
+        "Gently massage the lather over your body and face.",
+        "Rinse off with water.",
+        "Use daily for soft, hydrated skin."
       ]
     },
     {
@@ -263,6 +366,12 @@ export const products = [
         "Works to actively brighten dull and tired skin",
         "Enhances natural skin glow upon regular use",
         "Leaves a rich, luxurious feeling after every bath"
+      ],
+      howToUse: [
+        "Lather the soap in your hands or on a loofah.",
+        "Massage onto face and body in circular motions.",
+        "Rinse thoroughly.",
+        "Pat dry and follow with moisturizer."
       ]
     },
     {
@@ -277,6 +386,12 @@ export const products = [
         "Fights aging signs and rejuvenates mature skin",
         "Improves and smooths overall uneven skin texture",
         "Provides a luxurious, spa-like bathing experience"
+      ],
+      howToUse: [
+        "Wet the soap and lather well.",
+        "Apply to damp skin and massage gently.",
+        "Leave it on for 1-2 minutes for antioxidant absorption.",
+        "Rinse off completely."
       ]
     },
     {
@@ -292,6 +407,12 @@ export const products = [
         "Actively helps reduce skin hyper-pigmentation",
         "Evens out patchy skin tone over time",
         "Promotes a beautifully clear and uniform complexion"
+      ],
+      howToUse: [
+        "Lather the soap and apply to affected areas.",
+        "Gently massage for a minute.",
+        "Rinse thoroughly with water.",
+        "Use twice daily for best results."
       ]
     },
     {
@@ -306,6 +427,12 @@ export const products = [
         "Infused with nourishing natural plant oils",
         "Provides a gorgeous, rich berry red tint",
         "Protects lips from harsh weather conditions"
+      ],
+      howToUse: [
+        "Take a small amount on your fingertip.",
+        "Apply evenly on your lips.",
+        "Reapply whenever lips feel dry.",
+        "Can be used as an overnight lip mask."
       ]
     },
     {
@@ -321,6 +448,12 @@ export const products = [
         "Effectively moisturizes and prevents lip drying",
         "Helps lighten dark lips with regular application",
         "100% natural, safe to use daily"
+      ],
+      howToUse: [
+        "Dab a small amount onto your lips.",
+        "Spread evenly for a natural tint.",
+        "Apply throughout the day as needed.",
+        "Use overnight for deep healing."
       ]
     },
     {
@@ -336,6 +469,12 @@ export const products = [
         "Strengthens hair from root to tip to significantly reduce hair fall",
         "Restores dull hair by adding natural shine and bounce",
         "100% natural, chemical-free, and suitable for all hair types"
+      ],
+      howToUse: [
+        "Mix the powder with water to form a paste.",
+        "Apply evenly to scalp and hair.",
+        "Leave it on for 30-45 minutes.",
+        "Wash off thoroughly with water or a mild shampoo."
       ]
     },
     {
@@ -351,6 +490,12 @@ export const products = [
         "Absorbs quickly without leaving a greasy or sticky residue",
         "Improves skin elasticity and restores natural softness",
         "Perfect for all skin types, including dry and sensitive skin"
+      ],
+      howToUse: [
+        "Take a generous amount of moisturizer.",
+        "Apply to slightly damp skin after a shower.",
+        "Massage in circular motions until fully absorbed.",
+        "Focus on dry areas like elbows and knees."
       ]
     },
   ];
@@ -612,34 +757,36 @@ export default function Ruyani() {
           <p className="empty-cart">Your cart is empty</p>
         ) : (
           <>
-            {cart.map((item) => (
-              <div key={item.id} className="cart-item">
-                {/* Product Image */}
-                <img src={item.img} alt={item.name} className="cart-item-img" />
+            <div className="cart-items-list">
+              {cart.map((item) => (
+                <div key={item.id} className="cart-item">
+                  {/* Product Image */}
+                  <img src={item.img} alt={item.name} className="cart-item-img" />
 
-                {/* Product Details */}
-                <div className="cart-item-details">
-                  <h4>{item.name}</h4>
-                  <p>
-                    {item.qty} × ₹{item.price}
-                  </p>
+                  {/* Product Details */}
+                  <div className="cart-item-details">
+                    <h4>{item.name}</h4>
+                    <p>
+                      {item.qty} × ₹{item.price}
+                    </p>
 
-                  <div className="qty-controls">
-                    <button onClick={() => decreaseQty(item.id)}>-</button>
-                    <span>{item.qty}</span>
-                    <button onClick={() => increaseQty(item.id)}>+</button>
+                    <div className="qty-controls">
+                      <button onClick={() => decreaseQty(item.id)}>-</button>
+                      <span>{item.qty}</span>
+                      <button onClick={() => increaseQty(item.id)}>+</button>
+                    </div>
                   </div>
-                </div>
 
-                {/* Remove Button */}
-                <button
-                  className="remove-btn"
-                  onClick={() => removeItem(item.id)}
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
+                  {/* Remove Button */}
+                  <button
+                    className="remove-btn"
+                    onClick={() => removeItem(item.id)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+            </div>
 
             <div className="cart-footer">
               <h4>Total: Rs. {getTotal()}</h4>

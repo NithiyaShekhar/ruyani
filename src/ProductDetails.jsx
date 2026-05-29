@@ -81,9 +81,13 @@ export default function ProductDetails() {
           <p style={{ fontSize: "18px", lineHeight: "1.6", color: "var(--text-color)" }}>{product.desc}</p>
           
           <div style={{ padding: "20px", backgroundColor: "#f9fbf8", borderRadius: "8px", border: "1px solid #e1e8dd", marginTop: "20px" }}>
-            <h3 style={{ marginBottom: "15px", color: "var(--primary-color)", fontSize: "20px" }}>Why you'll love it</h3>
+            <h3 style={{ marginBottom: "15px", color: "var(--primary-color)", fontSize: "20px" }}>Benefits</h3>
             <ul style={{ margin: "0", paddingLeft: "20px", lineHeight: "2", color: "var(--text-color)", fontSize: "16px" }}>
-              {product.features && product.features.length > 0 ? (
+              {product.benefits && product.benefits.length > 0 ? (
+                product.benefits.map((benefit, idx) => (
+                  <li key={idx} style={{ marginBottom: "8px" }}>{benefit}</li>
+                ))
+              ) : product.features && product.features.length > 0 ? (
                 product.features.map((feature, idx) => (
                   <li key={idx} style={{ marginBottom: "8px" }}>{feature}</li>
                 ))
@@ -96,6 +100,23 @@ export default function ProductDetails() {
                 </>
               )}
             </ul>
+          </div>
+          
+          <div style={{ padding: "20px", backgroundColor: "#fff9f5", borderRadius: "8px", border: "1px solid #f2e6de", marginTop: "20px" }}>
+            <h3 style={{ marginBottom: "15px", color: "#d97743", fontSize: "20px" }}>How to Use</h3>
+            <ol style={{ margin: "0", paddingLeft: "20px", lineHeight: "2", color: "var(--text-color)", fontSize: "16px" }}>
+              {product.howToUse && product.howToUse.length > 0 ? (
+                product.howToUse.map((step, idx) => (
+                  <li key={idx} style={{ marginBottom: "8px" }}>{step}</li>
+                ))
+              ) : (
+                <>
+                  <li style={{ marginBottom: "8px" }}>Take a small amount of the product.</li>
+                  <li style={{ marginBottom: "8px" }}>Gently apply or massage onto the required area.</li>
+                  <li style={{ marginBottom: "8px" }}>Use regularly for best results.</li>
+                </>
+              )}
+            </ol>
           </div>
           
           {product.inStock === false ? (
@@ -150,31 +171,33 @@ export default function ProductDetails() {
           <p className="empty-cart">Your cart is empty</p>
         ) : (
           <>
-            {cart.map((item) => (
-              <div key={item.id} className="cart-item">
-                <img src={`/${item.img}`} alt={item.name} className="cart-item-img" />
+            <div className="cart-items-list">
+              {cart.map((item) => (
+                <div key={item.id} className="cart-item">
+                  <img src={`/${item.img}`} alt={item.name} className="cart-item-img" />
 
-                <div className="cart-item-details">
-                  <h4>{item.name}</h4>
-                  <p>
-                    {item.qty} × ₹{item.price}
-                  </p>
+                  <div className="cart-item-details">
+                    <h4>{item.name}</h4>
+                    <p>
+                      {item.qty} × ₹{item.price}
+                    </p>
 
-                  <div className="qty-controls">
-                    <button onClick={() => decreaseQty(item.id)}>-</button>
-                    <span>{item.qty}</span>
-                    <button onClick={() => increaseQty(item.id)}>+</button>
+                    <div className="qty-controls">
+                      <button onClick={() => decreaseQty(item.id)}>-</button>
+                      <span>{item.qty}</span>
+                      <button onClick={() => increaseQty(item.id)}>+</button>
+                    </div>
                   </div>
-                </div>
 
-                <button
-                  className="remove-btn"
-                  onClick={() => removeItem(item.id)}
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
+                  <button
+                    className="remove-btn"
+                    onClick={() => removeItem(item.id)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+            </div>
 
             <div className="cart-footer">
               <h4>Total: Rs. {getTotal()}</h4>
