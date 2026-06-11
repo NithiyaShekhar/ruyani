@@ -75,6 +75,8 @@ export const products = [
       name: "Kumkumadi Face Serum",
       desc: "Enriched with traditional kumkumadi ingredients to brighten skin, reduce dark spots, and boost radiance.",
       price: 250,
+      inStock: false,
+      badge: "Best Seller",
       category: "Skin Care",
       // inStock: false,
       features: [
@@ -90,27 +92,27 @@ export const products = [
         "Leave it overnight and wash off in the morning."
       ]
     },
-    {
-      id: 5,
-      img: "images/darkcircleserum.png",
-      name: "Dark Circle Serum",
-      desc: "Enriched with natural ingredients to lighten dark circles, reduce puffiness, and refresh under-eye skin.",
-      price: 199,
-      category: "Skin Care",
-      inStock: false,
-      features: [
-        "Specifically formulated for delicate under-eye skin",
-        "Effectively lightens dark circles and pigmentation",
-        "Reduces morning puffiness and eye bags",
-        "Cooling effect instantly refreshes tired eyes"
-      ],
-      howToUse: [
-        "Cleanse your face.",
-        "Take a drop of serum on your ring finger.",
-        "Gently dab around the under-eye area.",
-        "Use every night before sleeping."
-      ]
-    },
+    // {
+    //   id: 5,
+    //   img: "images/darkcircleserum.png",
+    //   name: "Dark Circle Serum",
+    //   desc: "Enriched with natural ingredients to lighten dark circles, reduce puffiness, and refresh under-eye skin.",
+    //   price: 199,
+    //   category: "Skin Care",
+    //   inStock: false,
+    //   features: [
+    //     "Specifically formulated for delicate under-eye skin",
+    //     "Effectively lightens dark circles and pigmentation",
+    //     "Reduces morning puffiness and eye bags",
+    //     "Cooling effect instantly refreshes tired eyes"
+    //   ],
+    //   howToUse: [
+    //     "Cleanse your face.",
+    //     "Take a drop of serum on your ring finger.",
+    //     "Gently dab around the under-eye area.",
+    //     "Use every night before sleeping."
+    //   ]
+    // },
     {
       id: 6,
       img: "images/kumkumadifacewash.png",
@@ -218,6 +220,7 @@ export const products = [
       desc: "100% herbal hair dye that naturally colors hair while nourishing and protecting it from damage.",
       price: 280,
       category: "Hair Care",
+      inStock: false,
       badge: "Best Seller",
       features: [
         "100% chemical-free, organic herbal hair color",
@@ -360,6 +363,7 @@ export const products = [
       name: "Kumkumadi Soap",
       desc: "Kumkumadi soap enriched with saffron to brighten skin, reduce dullness, and enhance natural glow.",
       price: 110,
+      inStock: false,
       category: "Body Care",
       features: [
         "Luxurious soap crafted with saffron and Kumkumadi oil",
@@ -624,6 +628,35 @@ export default function Ruyani() {
         </div>
       </header>
 
+      {/* Shimmering Launch Marquee */}
+      <div className="shimmer-marquee-wrapper">
+        <div className="shimmer-marquee">
+          {[...Array(2)].map((_, i) => (
+            <div className="marquee-group" key={i}>
+              <div className="marquee-item brand">RUYANI</div>
+              <div className="marquee-item launch-tag">SHIMMER CREAM • LAUNCHING SOON</div>
+              <img src="images/shimmer_cream_bottle.png" alt="Shimmer Cream" className="marquee-prod-img" />
+              <div className="marquee-item ingredients">
+                <span>Aloe Vera</span>
+                <span className="dot"></span>
+                <span>Coconut Oil</span>
+                <span className="dot"></span>
+                <span>Shea Butter</span>
+                <span className="dot"></span>
+                <span>Vitamin E</span>
+                <span className="dot"></span>
+                <span>Glycerin</span>
+                <span className="dot"></span>
+                <span>Hyaluronic Acid</span>
+                <span className="dot"></span>
+                <span>Natural Oils</span>
+              </div>
+              <div className="marquee-item shimmer-effect">✨ EXPERIENCE THE GLOW ✨</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Cart Bar */}
       {/* {cart.length > 0 && (
         <div className="cart-bar">
@@ -667,6 +700,7 @@ export default function Ruyani() {
           Crafted for Life’s Essentials.
         </p>
       </section>
+
 
       {/* Products */}
       <section className="products" id="products">

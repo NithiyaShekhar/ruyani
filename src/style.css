@@ -570,7 +570,114 @@ footer p {
   color: #D1DACF;
 }
 
+/* SHIMMER MARQUEE */
+.shimmer-marquee-wrapper {
+  background: #22352A;
+  color: #fff;
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+.shimmer-marquee {
+  display: inline-flex;
+  animation: shimmer-scroll 40s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding-right: 50px;
+}
+
+.marquee-item {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.marquee-item.brand {
+  font-size: 1.8rem;
+  color: #D4AF37; /* Gold */
+}
+
+.marquee-item.launch-tag {
+  font-size: 1.1rem;
+}
+
+.marquee-prod-img {
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.marquee-prod-img:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.marquee-item.ingredients {
+  color: #DDE0DA;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.marquee-item.ingredients .dot {
+  width: 6px;
+  height: 6px;
+  background: #B37D52;
+  border-radius: 50%;
+}
+
+.marquee-item.shimmer-effect {
+  color: #fff;
+  text-shadow: 0 0 8px #D4AF37, 0 0 15px #D4AF37;
+  animation: text-shimmer 2s infinite alternate;
+}
+
+@keyframes shimmer-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes text-shimmer {
+  from { opacity: 0.7; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+.shimmer-marquee-wrapper:hover .shimmer-marquee {
+  animation-play-state: paused;
+}
+
 /* RESPONSIVE */
+@media (max-width: 992px) {
+  .launch-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px;
+  }
+  
+  .launch-content {
+    text-align: center;
+  }
+  
+  .launch-features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
