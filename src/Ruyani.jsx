@@ -220,7 +220,7 @@ export const products = [
       desc: "100% herbal hair dye that naturally colors hair while nourishing and protecting it from damage.",
       price: 280,
       category: "Hair Care",
-      inStock: false,
+      inStock: true,
       badge: "Best Seller",
       features: [
         "100% chemical-free, organic herbal hair color",
@@ -241,6 +241,7 @@ export const products = [
       name: "Anti-dandruff Hair Oil",
       desc: "Herbal oil that controls dandruff, soothes itchy scalp, and keeps hair healthy and flake-free.",
       price: 220,
+      inStock: false,
       category: "Hair Care",
       features: [
         "Effectively targets root causes of persistent dandruff",
@@ -255,27 +256,27 @@ export const products = [
         "Wash off using a mild shampoo."
       ]
     },
-    {
-      id: 13,
-      img: "images/shikakaiHC.png",
-      name: "Shikakai Hair Conditioner",
-      desc: "Nourishing conditioner with shikakai that smooths hair, reduces frizz, and adds natural shine.",
-      price: 199,
-      category: "Hair Care",
-      inStock: false,
-      features: [
-        "Ancient Shikakai recipe for modern hair care",
-        "Deeply conditions and smooths rough hair texture",
-        "Controls frizz naturally and prevents tangling",
-        "Adds a brilliant, healthy natural shine"
-      ],
-      howToUse: [
-        "After shampooing, apply conditioner from mid-lengths to ends.",
-        "Avoid applying directly to the scalp.",
-        "Leave it on for 2-3 minutes.",
-        "Rinse thoroughly with water."
-      ]
-    },
+    // {
+    //   id: 13,
+    //   img: "images/shikakaiHC.png",
+    //   name: "Shikakai Hair Conditioner",
+    //   desc: "Nourishing conditioner with shikakai that smooths hair, reduces frizz, and adds natural shine.",
+    //   price: 199,
+    //   category: "Hair Care",
+    //   inStock: false,
+    //   features: [
+    //     "Ancient Shikakai recipe for modern hair care",
+    //     "Deeply conditions and smooths rough hair texture",
+    //     "Controls frizz naturally and prevents tangling",
+    //     "Adds a brilliant, healthy natural shine"
+    //   ],
+    //   howToUse: [
+    //     "After shampooing, apply conditioner from mid-lengths to ends.",
+    //     "Avoid applying directly to the scalp.",
+    //     "Leave it on for 2-3 minutes.",
+    //     "Rinse thoroughly with water."
+    //   ]
+    // },
     {
       id: 14,
       img: "images/shikakaishampoo.png",
@@ -296,27 +297,27 @@ export const products = [
         "Rinse thoroughly."
       ]
     },
-    {
-      id: 15,
-      img: "images/MoringaHC.png",
-      name: "Moringa Hair Conditioner",
-      desc: "Moringa conditioner that strengthens weak hair, reduces breakage, and leaves hair soft and manageable.",
-      price: 199,
-      category: "Hair Care",
-      inStock: false, 
-      features: [
-        "Nutrient-dense Moringa superfood strengthens weak strands",
-        "Significantly reduces hair breakage and split ends",
-        "Deeply hydrates to leave hair silky soft",
-        "Protects hair from environmental damages"
-      ],
-      howToUse: [
-        "Apply after washing hair with Moringa shampoo.",
-        "Distribute evenly through mid-lengths to the ends.",
-        "Leave for 2-3 minutes.",
-        "Rinse thoroughly."
-      ]
-    },
+    // {
+    //   id: 15,
+    //   img: "images/MoringaHC.png",
+    //   name: "Moringa Hair Conditioner",
+    //   desc: "Moringa conditioner that strengthens weak hair, reduces breakage, and leaves hair soft and manageable.",
+    //   price: 199,
+    //   category: "Hair Care",
+    //   inStock: false, 
+    //   features: [
+    //     "Nutrient-dense Moringa superfood strengthens weak strands",
+    //     "Significantly reduces hair breakage and split ends",
+    //     "Deeply hydrates to leave hair silky soft",
+    //     "Protects hair from environmental damages"
+    //   ],
+    //   howToUse: [
+    //     "Apply after washing hair with Moringa shampoo.",
+    //     "Distribute evenly through mid-lengths to the ends.",
+    //     "Leave for 2-3 minutes.",
+    //     "Rinse thoroughly."
+    //   ]
+    // },
     {
       id: 16,
       img: "images/moringashampoo.png",
@@ -398,27 +399,27 @@ export const products = [
         "Rinse off completely."
       ]
     },
-    {
-      id: 20,
-      img: "images/pigmentationsoap.png",
-      name: "Pigmentation Soap",
-      desc: "Herbal soap that helps reduce pigmentation, even out skin tone, and promote clearer skin.",
-      price: 110,
-      category: "Body Care",
-      inStock: false,
-      features: [
-        "Special herbal blend targets dark spots and marks",
-        "Actively helps reduce skin hyper-pigmentation",
-        "Evens out patchy skin tone over time",
-        "Promotes a beautifully clear and uniform complexion"
-      ],
-      howToUse: [
-        "Lather the soap and apply to affected areas.",
-        "Gently massage for a minute.",
-        "Rinse thoroughly with water.",
-        "Use twice daily for best results."
-      ]
-    },
+    // {
+    //   id: 20,
+    //   img: "images/pigmentationsoap.png",
+    //   name: "Pigmentation Soap",
+    //   desc: "Herbal soap that helps reduce pigmentation, even out skin tone, and promote clearer skin.",
+    //   price: 110,
+    //   category: "Body Care",
+    //   inStock: false,
+    //   features: [
+    //     "Special herbal blend targets dark spots and marks",
+    //     "Actively helps reduce skin hyper-pigmentation",
+    //     "Evens out patchy skin tone over time",
+    //     "Promotes a beautifully clear and uniform complexion"
+    //   ],
+    //   howToUse: [
+    //     "Lather the soap and apply to affected areas.",
+    //     "Gently massage for a minute.",
+    //     "Rinse thoroughly with water.",
+    //     "Use twice daily for best results."
+    //   ]
+    // },
     {
       id: 21,
       img: "images/lipbalm.png",
