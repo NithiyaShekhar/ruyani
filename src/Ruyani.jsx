@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./style.css";
@@ -55,7 +55,7 @@ export const products = [
       desc: "Herbal Sangupoo face cream enriched with natural ingredients to nourish, brighten, and give a healthy glowing skin.",
       price: 250,
       category: "Skin Care",
-      inStock: false,
+      inStock: true,
       features: [
         "Enriched with rare Sangupoo (Butterfly Pea) extracts",
         "Nourishes dry skin and provides lasting hydration",
@@ -75,7 +75,7 @@ export const products = [
       name: "Kumkumadi Face Serum",
       desc: "Enriched with traditional kumkumadi ingredients to brighten skin, reduce dark spots, and boost radiance.",
       price: 250,
-      inStock: false,
+      inStock: true,
       badge: "Best Seller",
       category: "Skin Care",
       // inStock: false,
@@ -364,7 +364,7 @@ export const products = [
       name: "Kumkumadi Soap",
       desc: "Kumkumadi soap enriched with saffron to brighten skin, reduce dullness, and enhance natural glow.",
       price: 110,
-      inStock: false,
+      inStock: true,
       category: "Body Care",
       features: [
         "Luxurious soap crafted with saffron and Kumkumadi oil",
@@ -503,6 +503,28 @@ export const products = [
         "Focus on dry areas like elbows and knees."
       ]
     },
+    {
+      id: 25,
+      img: "images/shimmer_cream.png",
+      name: "Shimmer Face Cream",
+      desc: "A luxurious face cream with a subtle shimmer for an instant glow and deep hydration.",
+      // originalPrice: 380,
+      price: 380,
+      category: "Skin Care",
+      badge: "New Launch",
+      features: [
+        "Instant radiant glow",
+        "Deeply hydrating formula",
+        "Crafted with natural oils and Vitamin E",
+        "Suitable for all skin types"
+      ],
+      howToUse: [
+        "Cleanse your face.",
+        "Apply a small amount evenly.",
+        "Gently massage in circular motions.",
+        "Use during the day for a sparkling glow."
+      ]
+    },
   ];
 
 export default function Ruyani() {
@@ -557,9 +579,45 @@ export default function Ruyani() {
   } = useCart();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [showOffer, setShowOffer] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowOffer(true);
+    }, 500); // Faster popup
+    return () => clearTimeout(timer);
+  }, []);
+
+  const shimmerProduct = products.find(p => p.id === 25);
 
   return (
     <>
+      {/* Offer Popup */}
+      {/* {showOffer && shimmerProduct && (
+        <div className="popup-overlay" onClick={() => setShowOffer(false)}>
+          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-popup" onClick={() => setShowOffer(false)}>×</button>
+            <div className="popup-badge">LIMITED PERIOD OFFER</div>
+            <img src={shimmerProduct.img} alt={shimmerProduct.name} className="popup-img" />
+            <h2 className="popup-title">{shimmerProduct.name}</h2>
+            <p className="popup-text">Our newly launched magic cream is here with an exclusive offer!</p>
+            <div className="popup-prices">
+              <span className="popup-original-price">Rs. {shimmerProduct.originalPrice}</span>
+              <span className="popup-offer-price">Rs. {shimmerProduct.price}</span>
+            </div>
+            <button 
+              className="cta-btn popup-btn" 
+              onClick={() => {
+                addToCart(shimmerProduct);
+                setShowOffer(false);
+              }}
+            >
+              Grab the Offer Now
+            </button>
+          </div>
+        </div>
+      )} */}
+
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-logo">
@@ -635,8 +693,8 @@ export default function Ruyani() {
           {[...Array(2)].map((_, i) => (
             <div className="marquee-group" key={i}>
               <div className="marquee-item brand">RUYANI</div>
-              <div className="marquee-item launch-tag">SHIMMER CREAM • LAUNCHING SOON</div>
-              <img src="images/shimmer_cream_bottle.png" alt="Shimmer Cream" className="marquee-prod-img" />
+              <div className="marquee-item launch-tag">SHIMMER CREAM • NEW LAUNCH - ORDER NOW</div>
+              <img src="images/shimmer_cream.png" alt="Shimmer Cream" className="marquee-prod-img" />
               <div className="marquee-item ingredients">
                 <span>Aloe Vera</span>
                 <span className="dot"></span>
@@ -726,7 +784,12 @@ export default function Ruyani() {
                         <h3>{p.name}</h3>
                       </Link>
                       <p>{p.desc}</p>
-                      <div className="price">Rs. {p.price}</div>
+                      <div className="price-container">
+                        {p.originalPrice && (
+                          <span className="original-price">Rs. {p.originalPrice}</span>
+                        )}
+                        <span className="price"> Rs. {p.price}</span>
+                      </div>
                       {p.inStock === false ? (
                         <button className="cta-btn disabled-btn" disabled>
                           Out of Stock
