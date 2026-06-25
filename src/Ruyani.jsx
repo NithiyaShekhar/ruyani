@@ -218,7 +218,7 @@ export const products = [
       img: "images/herbal hairdye.png",
       name: "Organic Herbal Hair Dye",
       desc: "100% herbal hair dye that naturally colors hair while nourishing and protecting it from damage.",
-      price: 280,
+      price: 299,
       category: "Hair Care",
       inStock: true,
       badge: "Best Seller",
