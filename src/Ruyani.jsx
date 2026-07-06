@@ -526,6 +526,50 @@ export const products = [
         "Use during the day for a sparkling glow."
       ]
     },
+    {
+      id: 26,
+      img: "images/crack balm.png",
+      name: "Crack Healing Balm",
+      desc: "A rich herbal balm that deeply moisturizes, repairs cracked heels, relieves dryness, and promotes smoother, healthier-looking skin.",
+      price: 199,
+      category: "Body Care",
+      inStock: true,
+      badge: "New Launch",
+      features: [
+        "Provides deep hydration and heals cracked heels",
+        "Soothes rough and dry skin on feet and hands",
+        "Enriched with natural oils and skin-repairing herbs",
+        "Fast-absorbing formula with long-lasting moisture"
+      ],
+      howToUse: [
+        "Cleanse your feet/skin and pat dry.",
+        "Apply a generous layer of Crack Cream to the affected area.",
+        "Massage gently until fully absorbed.",
+        "For best results, use daily before bedtime."
+      ]
+    },
+    {
+      id: 27,
+      img: "images/detan face pack.png",
+      name: "Detan Face Pack",
+      desc: "Specially crafted face pack to remove tan, deep cleanse pores, and restore natural skin brightness.",
+      price: 220,
+      category: "Skin Care",
+      inStock: true,
+      badge: "New Launch",
+      features: [
+        "Deeply cleanses pores and removes stubborn tan",
+        "Brightens skin complexion and evens out tone",
+        "Made with natural soothing ingredients",
+        "Reveals a fresh, radiant, and glowing face"
+      ],
+      howToUse: [
+        "Wash your face and pat dry.",
+        "Apply an even layer of the pack, avoiding the eyes.",
+        "Leave it on for 15-20 minutes until dry.",
+        "Rinse off gently with cold water and pat dry. Use 2-3 times a week."
+      ]
+    },
   ];
 
 export default function Ruyani() {

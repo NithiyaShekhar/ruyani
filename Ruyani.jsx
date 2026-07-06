@@ -124,6 +124,20 @@ export default function Ruyani() {
       desc: "Hydrating lip balm with natural oils",
       price: 160,
     },
+    {
+      id: 26,
+      img: "images/crack balm.png",
+      name: "Crack Cream",
+      desc: "Nourishing healing cream to soothe, hydrate, and repair dry, cracked heels and skin.",
+      price: 180,
+    },
+    {
+      id: 27,
+      img: "images/detan face pack.png",
+      name: "Detan Face Pack",
+      desc: "Specially crafted face pack to remove tan, deep cleanse pores, and restore natural skin brightness.",
+      price: 220,
+    },
   ];
   const [cart, setCart] = useState(() => {
     const saved = localStorage.getItem("ruyani_cart");
