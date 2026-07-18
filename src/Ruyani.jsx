@@ -242,7 +242,7 @@ export const products = [
       name: "Anti-dandruff Hair Oil",
       desc: "Herbal oil that controls dandruff, soothes itchy scalp, and keeps hair healthy and flake-free.",
       price: 220,
-      inStock: false,
+      inStock: true,
       category: "Hair Care",
       features: [
         "Effectively targets root causes of persistent dandruff",
