@@ -386,6 +386,7 @@ export const products = [
       name: "Red Wine Soap",
       desc: "Red wine soap rich in antioxidants that helps rejuvenate skin and improve overall skin texture.",
       price: 110,
+      inStock: false,
       category: "Body Care",
       features: [
         "Rich in red wine antioxidants (Resveratrol)",
