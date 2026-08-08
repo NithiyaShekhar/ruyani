@@ -573,7 +573,113 @@ export const products = [
     },
   ];
 
+export const anniversaryCombos = [
+  {
+    id: 101,
+    images: [
+      "images/kumcream.png",
+      "images/kumkumadifacewash.png",
+      "images/lipbalm.png"
+    ],
+    name: "Ultimate Glow Kit",
+    desc: "Achieve beautiful radiant skin with our saffron-infused bestseller cream, refreshing face wash, and nourishing lip tint.",
+    price: 569,
+    originalPrice: 605,
+    savings: 36,
+    badge: "Anniversary Special",
+    inStock: true,
+    items: [
+      "Kumkumadi Cream (Saffron glow)",
+      "Kumkumadi Face Wash",
+      "Berry red Lip Balm"
+    ]
+  },
+  {
+    id: 102,
+    images: [
+      "images/herbal hairoil.png",
+      "images/shikakaishampoo.png",
+      "images/hairpack.png"
+    ],
+    name: "Complete Hair Care Kit",
+    desc: "Complete traditional ayurvedic routine to cleanse, soothe scalp, and stimulate healthy root regrowth.",
+    price: 469,
+    originalPrice: 500,
+    savings: 31,
+    badge: "15% Extra Off",
+    inStock: true,
+    items: [
+      "Advanced Hair Regrowth Oil",
+      "Shikakai Shampoo",
+      "Herbal Hairpack"
+    ]
+  },
+  {
+    id: 103,
+    images: [
+      "images/redwine soap.png",
+      "images/Rosepetalssoap.png",
+      "images/charcoalsoap.png"
+    ],
+    name: "Artisan Soap Trio",
+    desc: "Three cold-processed, chemical-free soaps for a luxurious, skin-replenishing bathing experience.",
+    price: 299,
+    originalPrice: 330,
+    savings: 31,
+    badge: "Sellers Pick",
+    inStock: true,
+    items: [
+      "Red Wine Soap (Antioxidant)",
+      "Rose Petals Soap (Hydration)",
+      "Charcoal Soap (Deep cleanse)"
+    ]
+  }
+];
+
 export default function Ruyani() {
+  const [timeLeft, setTimeLeft] = useState(0);
+
+  useEffect(() => {
+    // Offer ends on August 31st, 2026 at 23:59:59 (Month is 7 because 0-indexed in JS)
+    const targetDate = new Date(2026, 7, 31, 23, 59, 59).getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        setTimeLeft(0);
+        return false;
+      }
+
+      setTimeLeft(Math.floor(difference / 1000));
+      return true;
+    };
+
+    updateTimer();
+    const interval = setInterval(() => {
+      const active = updateTimer();
+      if (!active) {
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTime = (seconds) => {
+    if (seconds <= 0) return "Offer Ended";
+    const days = Math.floor(seconds / (3600 * 24));
+    const hrs = Math.floor((seconds % (3600 * 24)) / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    
+    if (days > 0) {
+      return `${days}d ${hrs.toString().padStart(2, '0')}h ${mins.toString().padStart(2, '0')}m ${secs.toString().padStart(2, '0')}s`;
+    }
+    return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+
   const customerFeedback = [
     {
       name: "Priya S.",
@@ -675,6 +781,9 @@ export default function Ruyani() {
           <li>
             <a href="#" onClick={() => setActiveCategory("All")}>Home</a>
           </li>
+          <li>
+            <a href="#anniversary-sale">Anniversary Offers</a>
+          </li>
           <li
             className="dropdown"
             onMouseEnter={() => setIsDropdownOpen(true)}
@@ -761,6 +870,77 @@ export default function Ruyani() {
           ))}
         </div>
       </div>
+
+      {/* Anniversary Sale Section */}
+      <section className="anniversary-sale" id="anniversary-sale">
+        <div className="anniversary-header">
+          <span className="anniversary-tag">RUYANI NATURALS • 1ST YEAR ANNIVERSARY 🎉</span>
+          <h2>Anniversary Sale Specials</h2>
+          <p className="anniversary-sub">
+            Celebrating 1 year of crafting pure, natural love. Grab our limited-edition, curated combos at exclusive prices!
+            <br />
+            <strong>Offer valid from Aug 1st 2026 to Aug 31 2026</strong>
+          </p>
+          <div className="countdown-container">
+            <span className="countdown-label">Offer ends in:</span>
+            <div className="countdown-timer">{formatTime(timeLeft)}</div>
+          </div>
+        </div>
+
+        <div className="anniversary-grid">
+          {anniversaryCombos.map((combo) => (
+            <div className="combo-card" key={combo.id}>
+              <div className="combo-badge">{combo.badge}</div>
+              <div className="combo-images-container">
+                {combo.images.map((imgSrc, idx) => (
+                  <img key={idx} src={imgSrc} alt={combo.name} />
+                ))}
+              </div>
+              <div className="combo-info">
+                <h3>{combo.name}</h3>
+                <p className="combo-desc">{combo.desc}</p>
+                
+                <div className="combo-items-list">
+                  <h4>What's Inside:</h4>
+                  <ul>
+                    {combo.items.map((item, idx) => (
+                      <li key={idx}>
+                        <svg className="tick-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="combo-price-container">
+                  <div className="price-row">
+                    <span className="combo-orig-price">Rs. {combo.originalPrice}</span>
+                    <span className="combo-saving">Save Rs. {combo.savings}!</span>
+                  </div>
+                  <span className="combo-price">Rs. {combo.price}</span>
+                </div>
+
+                {cart.find((item) => item.id === combo.id) ? (
+                  <div className="cart-added-controls combo-added-controls">
+                    <span className="added-text">Added ✓</span>
+                    <div className="inline-qty">
+                      <button onClick={() => decreaseQty(combo.id)}>-</button>
+                      <span className="qty-count">{cart.find(item => item.id === combo.id).qty}</span>
+                      <button onClick={() => increaseQty(combo.id)}>+</button>
+                    </div>
+                  </div>
+                ) : (
+                  <button className="cta-btn combo-add-btn" onClick={() => addToCart(combo)}>
+                    Add Combo to Cart
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Cart Bar */}
       {/* {cart.length > 0 && (
