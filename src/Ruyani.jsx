@@ -14,7 +14,7 @@ export const products = [
       price: 250,
       category: "Skin Care",
       badge: "Best Seller",
-      inStock: false,
+      inStock: true,
       features: [
         "Handmade with authentic real saffron",
         "Visibly brightens and adds a natural glow",
@@ -28,27 +28,27 @@ export const products = [
         "Use daily at night for best results."  
       ]
     },
-    {
-      id: 2,
-      img: "images/Scrub.png",
-      name: "Face Brightening Scrub",      
-      desc: "Natural exfoliating scrub that removes impurities, reduces dullness, and enhances your skin’s glow.",
-      price: 220,
-      category: "Skin Care",
-      inStock: false,
-      features: [
-        "Gently exfoliates dead skin cells",
-        "Removes deep-seated impurities and blackheads",
-        "Instantly brightens dull complexion",
-        "Made with 100% natural scrubbing agents"
-      ],
-      howToUse: [
-        "Wet your face with warm water.",
-        "Apply a small amount of scrub.",
-        "Gently massage in circular motions for 1-2 minutes.",
-        "Rinse off thoroughly and pat dry. Use 2-3 times a week."
-      ]
-    },
+    // {
+    //   id: 2,
+    //   img: "images/Scrub.png",
+    //   name: "Face Brightening Scrub",      
+    //   desc: "Natural exfoliating scrub that removes impurities, reduces dullness, and enhances your skin’s glow.",
+    //   price: 220,
+    //   category: "Skin Care",
+    //   inStock: false,
+    //   features: [
+    //     "Gently exfoliates dead skin cells",
+    //     "Removes deep-seated impurities and blackheads",
+    //     "Instantly brightens dull complexion",
+    //     "Made with 100% natural scrubbing agents"
+    //   ],
+    //   howToUse: [
+    //     "Wet your face with warm water.",
+    //     "Apply a small amount of scrub.",
+    //     "Gently massage in circular motions for 1-2 minutes.",
+    //     "Rinse off thoroughly and pat dry. Use 2-3 times a week."
+    //   ]
+    // },
     {
       id: 3,
       img: "images/Sangupoocream.png",
@@ -386,7 +386,7 @@ export const products = [
       name: "Red Wine Soap",
       desc: "Red wine soap rich in antioxidants that helps rejuvenate skin and improve overall skin texture.",
       price: 110,
-      inStock: false,
+      inStock: true,
       category: "Body Care",
       features: [
         "Rich in red wine antioxidants (Resveratrol)",
