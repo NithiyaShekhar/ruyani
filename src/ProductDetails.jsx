@@ -1,22 +1,56 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { products } from "./Ruyani";
 import { useCart } from "./CartContext";
 import "./style.css";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const { cart, isCartOpen, setIsCartOpen, addToCart, increaseQty, decreaseQty, removeItem, getTotal, whatsappCheckout } = useCart();
-  const product = products.find((p) => p.id === parseInt(id));
+  const [preAddQty, setPreAddQty] = useState(1);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  const cartItem = cart.find((item) => item.id === product?.id);
+  const currentQty = cartItem?.qty || 0;
+  const stockQuantity = Number(product?.stock_quantity || 0);
+
+useEffect(() => {
+  const fetchProduct = async () => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/products/${id}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Product not found");
+      }
+
+      const data = await response.json();
+      setProduct(data);
+    } catch (err) {
+      console.error(err);
+      setError("Unable to load product");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProduct();
+}, [id]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (!product) {
+  if (loading) {
+    return <div>Loading product...</div>;
+  }
+  
+  if (error || !product) {
     return (
       <div style={{ textAlign: "center", padding: "100px" }}>
-        <h2>Product not found</h2>
+        <h2>{error || "Product not found"}</h2>
         <Link to="/">Go back to Home</Link>
       </div>
     );
@@ -77,7 +111,9 @@ export default function ProductDetails() {
         <div className="product-details-info" style={{ flex: "1", minWidth: "300px", display: "flex", flexDirection: "column", gap: "20px" }}>
           <h1 style={{ color: "var(--primary-color)", margin: "0" }}>{product.name}</h1>
           {product.badge && <span className="product-badge" style={{ alignSelf: "flex-start", position: "static" }}>{product.badge}</span>}
-          <div className="price" style={{ fontSize: "28px", color: "var(--primary-hover)", fontWeight: "600" }}>Rs. {product.price}</div>
+          <div className="price" style={{ fontSize: "28px", color: "var(--primary-hover)", fontWeight: "600" }}>
+            Rs. {product.price} {product.size && <span style={{ fontSize: "18px", color: "#666", fontWeight: "normal", marginLeft: "10px" }}>({product.size})</span>}
+          </div>
           <p style={{ fontSize: "18px", lineHeight: "1.6", color: "var(--text-color)" }}>{product.desc}</p>
           
           <div style={{ padding: "20px", backgroundColor: "#f9fbf8", borderRadius: "8px", border: "1px solid #e1e8dd", marginTop: "20px" }}>
@@ -123,19 +159,93 @@ export default function ProductDetails() {
             <button className="cta-btn disabled-btn" disabled style={{ marginTop: "20px", width: "fit-content", padding: "12px 30px", fontSize: "18px" }}>
               Out of Stock
             </button>
-          ) : cart.find((item) => item.id === product.id) ? (
-            <div className="cart-added-controls" style={{ marginTop: "20px", marginBottom: "20px", display: "inline-flex" }}>
-              <span className="added-text" style={{ fontSize: "18px", padding: "12px 20px" }}>Added ✓</span>
+          ) : cartItem ? (
+            <div
+              className="cart-added-controls"
+              style={{
+                marginTop: "20px",
+                marginBottom: "20px",
+                display: "inline-flex",
+              }}
+            >
+              <span
+                className="added-text"
+                style={{
+                  fontSize: "18px",
+                  padding: "12px 20px",
+                }}
+              >
+                Added ✓
+              </span>
+
               <div className="inline-qty" style={{ height: "48px" }}>
-                <button onClick={() => decreaseQty(product.id)} style={{ width: "40px", fontSize: "20px" }}>-</button>
-                <span className="qty-count" style={{ width: "40px", fontSize: "18px" }}>{cart.find(item => item.id === product.id).qty}</span>
-                <button onClick={() => increaseQty(product.id)} style={{ width: "40px", fontSize: "20px" }}>+</button>
+                <button
+                  onClick={() => decreaseQty(product.id)}
+                  style={{
+                    width: "40px",
+                    fontSize: "20px",
+                  }}
+                >
+                  -
+                </button>
+
+                <span
+                  className="qty-count"
+                  style={{
+                    width: "40px",
+                    fontSize: "18px",
+                  }}
+                >
+                  {currentQty}
+                </span>
+
+                <button
+                  onClick={() => increaseQty(product.id)}
+                  disabled={currentQty >= stockQuantity}
+                  style={{
+                    width: "40px",
+                    fontSize: "20px",
+                    cursor:
+                      currentQty >= stockQuantity
+                        ? "not-allowed"
+                        : "pointer",
+                    opacity:
+                      currentQty >= stockQuantity ? 0.5 : 1,
+                  }}
+                >
+                  +
+                </button>
               </div>
             </div>
           ) : (
-            <button className="cta-btn" onClick={() => addToCart(product)} style={{ marginTop: "20px", width: "fit-content", padding: "12px 30px", fontSize: "18px", cursor: "pointer" }}>
-              Add to Cart
-            </button>
+            <div className="pre-add-qty-container" style={{ marginTop: "20px", display: "inline-flex", gap: "15px", alignItems: "center" }}>
+              <div className="inline-qty" style={{ height: "48px" }}>
+                <button onClick={() => preAddQty > 1 && setPreAddQty(preAddQty - 1)} style={{ width: "40px", fontSize: "20px" }}>-</button>
+                <span className="qty-count" style={{ width: "40px", fontSize: "18px", textAlign: "center", display: "inline-block" }}>{preAddQty}</span>
+                <button
+                    onClick={() => {
+                      if (preAddQty < product.stock_quantity) {
+                        setPreAddQty(preAddQty + 1);
+                      }
+                    }}
+                    disabled={preAddQty >= product.stock_quantity}
+                    style={{
+                      width: "40px",
+                      fontSize: "20px",
+                      cursor:
+                        preAddQty >= product.stock_quantity
+                          ? "not-allowed"
+                          : "pointer",
+                      opacity: preAddQty >= product.stock_quantity ? 0.5 : 1,
+                    }}
+                  >
+                    +
+                  </button>
+              </div>
+              <button className="cta-btn" onClick={() => addToCart(product, preAddQty)} style={{ width: "fit-content", padding: "12px 30px", fontSize: "18px", cursor: "pointer" }}>
+                Add to Cart
+              </button>
+            </div>
           )}
 
           <Link to="/" className="cta-btn" style={{ 
@@ -185,7 +295,22 @@ export default function ProductDetails() {
                     <div className="qty-controls">
                       <button onClick={() => decreaseQty(item.id)}>-</button>
                       <span>{item.qty}</span>
-                      <button onClick={() => increaseQty(item.id)}>+</button>
+                      <button
+                          onClick={() => increaseQty(item.id)}
+                          disabled={item.qty >= Number(item.stock_quantity)}
+                          style={{
+                            cursor:
+                              item.qty >= Number(item.stock_quantity)
+                                ? "not-allowed"
+                                : "pointer",
+                            opacity:
+                              item.qty >= Number(item.stock_quantity)
+                                ? 0.5
+                                : 1,
+                          }}
+                        >
+                          +
+                        </button>
                     </div>
                   </div>
 

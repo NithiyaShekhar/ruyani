@@ -5,13 +5,14 @@ import "./style.css";
 
 const WHATSAPP_NUMBER = "919629888703";
 
-export const products = [
+ const fallbackProducts = [
     {
       id: 1,
       img: "images/kumcream.png",
       name: "Kumkumadi Cream",
       desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in few days.",
       price: 250,
+      size: "25g",
       category: "Skin Care",
       badge: "Best Seller",
       inStock: true,
@@ -55,6 +56,7 @@ export const products = [
       name: "Sangupoo face Cream",
       desc: "Herbal Sangupoo face cream enriched with natural ingredients to nourish, brighten, and give a healthy glowing skin.",
       price: 250,
+      size: "25g",
       category: "Skin Care",
       inStock: true,
       features: [
@@ -76,6 +78,7 @@ export const products = [
       name: "Kumkumadi Face Serum",
       desc: "Enriched with traditional kumkumadi ingredients to brighten skin, reduce dark spots, and boost radiance.",
       price: 250,
+      size: "15ml",
       inStock: true,
       badge: "Best Seller",
       category: "Skin Care",
@@ -120,6 +123,7 @@ export const products = [
       name: "Kumkumadi Face Wash",
       desc: "Enriched with kumkumadi ingredients to brighten skin, remove impurities, and give a radiant glow.",
       price: 195,
+      size: "50ml",
       category: "Skin Care",
       features: [
         "Gentle daily cleanser with Kumkumadi benefits",
@@ -140,6 +144,7 @@ export const products = [
       name: "Coffee Glow Face Wash",
       desc: "Energizing coffee face wash that deeply cleanses, removes excess oil, and gives an instant natural glow.",
       price: 195,
+      size: "50ml",
       category: "Skin Care",
       features: [
         "Energizing coffee extracts wake up tired skin",
@@ -160,6 +165,7 @@ export const products = [
       name: "Charcoal Soap",
       desc: "Activated charcoal soap that deeply cleanses pores, removes impurities, and leaves skin fresh and clear.",
       price: 110,
+      size: "100g-125g",
       category: "Body Care",
       features: [
         "Activated charcoal draws out deep-pore toxins",
@@ -180,6 +186,7 @@ export const products = [
       name: "Kuppaimeni Soap",
       desc: "Herbal kuppaimeni soap that helps reduce acne, soothe skin, and promote a clear, healthy complexion.",
       price: 110,
+      size: "100g-125g",
       category: "Body Care",
       features: [
         "Traditional Kuppaimeni herb effectively fights acne",
@@ -200,6 +207,7 @@ export const products = [
       name: "Advanced Hair Regrowth Oil",
       desc: "Powerful herbal oil that strengthens roots, reduces hair fall, and supports healthy hair regrowth.",
       price: 210,
+      size: "100ml",
       category: "Hair Care",
       features: [
         "Potent herbal blend stimulates dormant hair follicles",
@@ -220,6 +228,7 @@ export const products = [
       name: "Organic Herbal Hair Dye",
       desc: "100% herbal hair dye that naturally colors hair while nourishing and protecting it from damage.",
       price: 299,
+      size: "80g",
       category: "Hair Care",
       inStock: true,
       badge: "Best Seller",
@@ -232,7 +241,7 @@ export const products = [
       howToUse: [
         "Mix the dye powder with warm water to make a paste.",
         "Apply evenly from roots to tips on clean, dry hair.",
-        "Leave it on for 1-2 hours.",
+        "Leave it on for 45min - 1hr.",
         "Rinse thoroughly with water."
       ]
     },
@@ -242,6 +251,7 @@ export const products = [
       name: "Anti-dandruff Hair Oil",
       desc: "Herbal oil that controls dandruff, soothes itchy scalp, and keeps hair healthy and flake-free.",
       price: 220,
+      size: "100ml",
       inStock: true,
       category: "Hair Care",
       features: [
@@ -284,6 +294,7 @@ export const products = [
       name: "Shikakai Shampoo",
       desc: "Enriched with shikakai to cleanse naturally, reduce dandruff, and leave hair smooth, soft, and healthy.",
       price: 210,
+      size: "100ml",
       category: "Hair Care",
       features: [
         "Natural cleansing properties of Shikakai extract",
@@ -325,6 +336,7 @@ export const products = [
       name: "Moringa Shampoo",
       desc: "Enriched with moringa extracts to strengthen roots, control hair fall, and leave hair soft and healthy.",
       price: 210,
+      size: "100ml",
       category: "Hair Care",
       features: [
         "Packed with Moringa vitamins and minerals",
@@ -345,6 +357,7 @@ export const products = [
       name: "Rose Petals Soap",
       desc: "Gentle rose petals soap that hydrates skin, soothes irritation, and leaves a soft natural glow.",
       price: 110,
+      size: "100g-125g",
       category: "Body Care",
       features: [
         "Infused with real, gentle rose petal extracts",
@@ -365,6 +378,7 @@ export const products = [
       name: "Kumkumadi Soap",
       desc: "Kumkumadi soap enriched with saffron to brighten skin, reduce dullness, and enhance natural glow.",
       price: 110,
+      size: "100g-125g",
       inStock: true,
       category: "Body Care",
       features: [
@@ -386,6 +400,7 @@ export const products = [
       name: "Red Wine Soap",
       desc: "Red wine soap rich in antioxidants that helps rejuvenate skin and improve overall skin texture.",
       price: 110,
+      size: "100g-125g",
       inStock: true,
       category: "Body Care",
       features: [
@@ -428,6 +443,7 @@ export const products = [
       name: "Berry red Lip Balm",
       desc: "Infused with natural oils to hydrate, heal dry lips, and give a rich berry tint.",
       price: 160,
+      size: "5-8g",
       category: "Skin Care",
       features: [
         "Deeply hydrates and heals chapped, dry lips",
@@ -448,6 +464,7 @@ export const products = [
       name: "Beetroot Lip Balm",
       desc: "Enriched with beetroot and natural oils to moisturize, heal dry lips, and enhance natural lip color.",
       price: 160,
+      size: "5-8g",
       category: "Skin Care",
       // inStock: false,
       features: [
@@ -469,8 +486,9 @@ export const products = [
       name: "Herbal Hairpack",
       desc: "A nourishing herbal hair pack that strengthens roots, controls hair fall, and restores natural shine.",
       price: 80,
+      size: "30g",
       category: "Hair Care",
-      badge: "New Arrival",
+      // badge: "New Arrival",
       features: [
         "Powerful blend of natural herbs to intensely nourish the scalp",
         "Strengthens hair from root to tip to significantly reduce hair fall",
@@ -490,6 +508,7 @@ export const products = [
       name: "Almond Body Moisturizer",
       desc: "Deeply hydrating almond body moisturizer that leaves skin soft, smooth, and nourished all day long.",
       price: 250,
+      size: "100ml",
       category: "Body Care",
       // badge: "New Arrival",
       features: [
@@ -512,6 +531,7 @@ export const products = [
       desc: "A luxurious face cream with a subtle shimmer for an instant glow and deep hydration.",
       // originalPrice: 380,
       price: 380,
+      size: "25g",
       category: "Skin Care",
       badge: "New Launch",
       features: [
@@ -533,6 +553,7 @@ export const products = [
       name: "Crack Healing Balm",
       desc: "A rich herbal balm that deeply moisturizes, repairs cracked heels, relieves dryness, and promotes smoother, healthier-looking skin.",
       price: 199,
+      size: "40g",
       category: "Body Care",
       inStock: true,
       badge: "New Launch",
@@ -555,6 +576,7 @@ export const products = [
       name: "Detan Face Pack",
       desc: "Specially crafted face pack to remove tan, deep cleanse pores, and restore natural skin brightness.",
       price: 220,
+      size: "40g",
       category: "Skin Care",
       inStock: true,
       badge: "New Launch",
@@ -569,6 +591,27 @@ export const products = [
         "Apply an even layer of the pack, avoiding the eyes.",
         "Leave it on for 15-20 minutes until dry.",
         "Rinse off gently with cold water and pat dry. Use 2-3 times a week."
+      ]
+    },
+    {
+      id: 28,
+      img: "images/manjista soap.png",
+      name: "Manjista Soap",
+      desc: "A gentle herbal soap enriched with Manjista powder and nourishing oils to cleanse, nourish, and support a naturally even-looking complexion.",
+      price: 120,
+      size: "100g-125g",
+      category: "Body Care",
+      features: [
+        "Enriched with Manjista powder and nourishing herbal oils",
+        "Helps brighten the appearance of dull skin and promote a natural glow",
+        "Helps improve the appearance of pigmentation, dark spots, and blemishes",
+        "Nourishes and hydrates skin for a soft, smooth feel"
+      ],
+      howToUse: [
+        "Wet the soap and create a rich lather.",
+        "Gently massage the lather over your face and body.",
+        "Rinse thoroughly with water.",
+        "Use daily as part of your regular skincare routine."
       ]
     },
   ];
@@ -638,10 +681,40 @@ export const anniversaryCombos = [
 
 export default function Ruyani() {
   const [timeLeft, setTimeLeft] = useState(0);
+  const [cardQtys, setCardQtys] = useState({});
+
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:8000/products"
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        const data = await response.json();
+
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+        setError("Unable to load products");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   useEffect(() => {
     // Offer ends on August 31st, 2026 at 23:59:59 (Month is 7 because 0-indexed in JS)
-    const targetDate = new Date(2026, 7, 31, 23, 59, 59).getTime();
+    const targetDate = new Date(2026, 8, 30, 23, 59, 59).getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -742,6 +815,14 @@ export default function Ruyani() {
 
   const shimmerProduct = products.find(p => p.id === 25);
 
+  if (loading) {
+    return <div>Loading products...</div>;
+  }
+  
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <>
       {/* Offer Popup */}
@@ -778,8 +859,14 @@ export default function Ruyani() {
         </div>
 
         <ul className="nav-links">
-          <li>
-            <a href="#" onClick={() => setActiveCategory("All")}>Home</a>
+         <li>
+            <button
+              type="button"
+              onClick={() => setActiveCategory("All")}
+              className="nav-link-button"
+            >
+              Home
+            </button>
           </li>
           <li>
             <a href="#anniversary-sale">Anniversary Offers</a>
@@ -879,7 +966,7 @@ export default function Ruyani() {
           <p className="anniversary-sub">
             Celebrating 1 year of crafting pure, natural love. Grab our limited-edition, curated combos at exclusive prices!
             <br />
-            <strong>Offer valid from Aug 1st 2026 to Aug 31 2026</strong>
+            <strong>Offer valid from Aug 1st 2026 to Sep 30 2026</strong>
           </p>
           <div className="countdown-container">
             <span className="countdown-label">Offer ends in:</span>
@@ -932,9 +1019,19 @@ export default function Ruyani() {
                     </div>
                   </div>
                 ) : (
-                  <button className="cta-btn combo-add-btn" onClick={() => addToCart(combo)}>
-                    Add Combo to Cart
-                  </button>
+                  <div className="pre-add-qty-container" style={{ display: "flex", gap: "10px", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                    <div className="inline-qty" style={{ height: "38px" }}>
+                      <button onClick={() => setCardQtys(prev => ({ ...prev, [combo.id]: Math.max(1, (prev[combo.id] || 1) - 1) }))}>-</button>
+                      <span className="qty-count" style={{ minWidth: "16px" }}>{cardQtys[combo.id] || 1}</span>
+                      <button onClick={() => setCardQtys(prev => ({ ...prev, [combo.id]: (prev[combo.id] || 1) + 1 }))}>+</button>
+                    </div>
+                    <button className="cta-btn combo-add-btn" style={{ padding: "8px 18px", fontSize: "14px", height: "38px", display: "flex", alignItems: "center", justifyContent: "center", width: "auto", flex: 1, margin: 0, borderRadius: "12px" }} onClick={() => {
+                      addToCart(combo, cardQtys[combo.id] || 1);
+                      setCardQtys(prev => ({ ...prev, [combo.id]: 1 }));
+                    }}>
+                      Add Combo
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
@@ -1010,11 +1107,12 @@ export default function Ruyani() {
                         <h3>{p.name}</h3>
                       </Link>
                       <p>{p.desc}</p>
-                      <div className="price-container">
+                      <div className="price-container" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px", flexWrap: "wrap" }}>
                         {p.originalPrice && (
                           <span className="original-price">Rs. {p.originalPrice}</span>
                         )}
-                        <span className="price"> Rs. {p.price}</span>
+                        <span className="price" style={{ margin: 0 }}> Rs. {p.price}</span>
+                        {p.size && <span className="product-size-tag" style={{ fontSize: "0.9rem", color: "#666" }}>({p.size})</span>}
                       </div>
                       {p.inStock === false ? (
                         <button className="cta-btn disabled-btn" disabled>
@@ -1022,17 +1120,79 @@ export default function Ruyani() {
                         </button>
                       ) : cart.find((item) => item.id === p.id) ? (
                         <div className="cart-added-controls">
-                          <span className="added-text">Added ✓</span>
-                          <div className="inline-qty">
-                            <button onClick={() => decreaseQty(p.id)}>-</button>
-                            <span className="qty-count">{cart.find(item => item.id === p.id).qty}</span>
-                            <button onClick={() => increaseQty(p.id)}>+</button>
-                          </div>
+                        <span className="added-text">Added ✓</span>
+                      
+                        <div className="inline-qty">
+                          <button onClick={() => decreaseQty(p.id)}>
+                            -
+                          </button>
+                      
+                          <span className="qty-count">
+                            {cart.find(item => item.id === p.id).qty}
+                          </span>
+                      
+                          <button
+                            onClick={() => increaseQty(p.id)}
+                            disabled={
+                              cart.find(item => item.id === p.id).qty >=
+                              Number(p.stock_quantity)
+                            }
+                            style={{
+                              cursor:
+                                cart.find(item => item.id === p.id).qty >=
+                                Number(p.stock_quantity)
+                                  ? "not-allowed"
+                                  : "pointer",
+                              opacity:
+                                cart.find(item => item.id === p.id).qty >=
+                                Number(p.stock_quantity)
+                                  ? 0.5
+                                  : 1,
+                            }}
+                          >
+                            +
+                          </button>
                         </div>
+                      </div>
                       ) : (
-                        <button className="cta-btn" onClick={() => addToCart(p)}>
-                          Add to Cart
-                        </button>
+                        <div className="pre-add-qty-container" style={{ display: "flex", gap: "10px", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                          <div className="inline-qty" style={{ height: "38px" }}>
+                            <button onClick={() => setCardQtys(prev => ({ ...prev, [p.id]: Math.max(1, (prev[p.id] || 1) - 1) }))}>-</button>
+                            <span className="qty-count" style={{ minWidth: "16px" }}>{cardQtys[p.id] || 1}</span>
+                            <button
+                              onClick={() =>
+                                setCardQtys(prev => ({
+                                  ...prev,
+                                  [p.id]: Math.min(
+                                    (prev[p.id] || 1) + 1,
+                                    Number(p.stock_quantity)
+                                  )
+                                }))
+                              }
+                              disabled={
+                                (cardQtys[p.id] || 1) >= Number(p.stock_quantity)
+                              }
+                              style={{
+                                cursor:
+                                  (cardQtys[p.id] || 1) >= Number(p.stock_quantity)
+                                    ? "not-allowed"
+                                    : "pointer",
+                                opacity:
+                                  (cardQtys[p.id] || 1) >= Number(p.stock_quantity)
+                                    ? 0.5
+                                    : 1,
+                              }}
+                            >
+                              +
+                            </button>
+                          </div>
+                          <button className="cta-btn" style={{ padding: "8px 18px", fontSize: "14px", height: "38px", display: "flex", alignItems: "center", justifyContent: "center", width: "auto", flex: 1, margin: 0, borderRadius: "12px" }} onClick={() => {
+                            addToCart(p, cardQtys[p.id] || 1);
+                            setCardQtys(prev => ({ ...prev, [p.id]: 1 }));
+                          }}>
+                            Add to Cart
+                          </button>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -1095,9 +1255,30 @@ export default function Ruyani() {
                     </p>
 
                     <div className="qty-controls">
-                      <button onClick={() => decreaseQty(item.id)}>-</button>
+                      <button onClick={() => decreaseQty(item.id)}>
+                        -
+                      </button>
+
                       <span>{item.qty}</span>
-                      <button onClick={() => increaseQty(item.id)}>+</button>
+
+                      <button
+                        onClick={() => increaseQty(item.id)}
+                        disabled={
+                          item.qty >= Number(item.stock_quantity)
+                        }
+                        style={{
+                          cursor:
+                            item.qty >= Number(item.stock_quantity)
+                              ? "not-allowed"
+                              : "pointer",
+                          opacity:
+                            item.qty >= Number(item.stock_quantity)
+                              ? 0.5
+                              : 1,
+                        }}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
 
