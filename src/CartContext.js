@@ -111,7 +111,7 @@ export const CartProvider = ({ children }) => {
     if (!customerPhone) return;
   
     try {
-      const response = await fetch("http://127.0.0.1:8000/orders", {
+      const response = await fetch("https://ruyani-backend.onrender.com/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -160,10 +160,8 @@ export const CartProvider = ({ children }) => {
   
       const encodedMessage = encodeURIComponent(finalMessage);
   
-      window.open(
-        `https://wa.me/919629888703?text=${encodedMessage}`,
-        "_blank"
-      );
+      window.location.href =
+         `https://wa.me/919629888703?text=${encodedMessage}`;
   
       // Clear cart only after successful order creation
       setCart([]);
