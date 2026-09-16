@@ -28,6 +28,7 @@ class Order(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     customer_name: Mapped[str] = mapped_column(String(150), nullable=False)
     customer_phone: Mapped[str] = mapped_column(String(30), nullable=False)
+    customer_address: Mapped[str] = mapped_column(Text,nullable=False)
     total_amount: Mapped[float] = mapped_column(Float, nullable=False)
 
 

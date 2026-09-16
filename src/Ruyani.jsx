@@ -616,68 +616,68 @@ const WHATSAPP_NUMBER = "919629888703";
     },
   ];
 
-export const anniversaryCombos = [
-  {
-    id: 101,
-    images: [
-      "images/kumcream.png",
-      "images/kumkumadifacewash.png",
-      "images/lipbalm.png"
-    ],
-    name: "Ultimate Glow Kit",
-    desc: "Achieve beautiful radiant skin with our saffron-infused bestseller cream, refreshing face wash, and nourishing lip tint.",
-    price: 569,
-    originalPrice: 605,
-    savings: 36,
-    badge: "Anniversary Special",
-    inStock: true,
-    items: [
-      "Kumkumadi Cream (Saffron glow)",
-      "Kumkumadi Face Wash",
-      "Berry red Lip Balm"
-    ]
-  },
-  {
-    id: 102,
-    images: [
-      "images/herbal hairoil.png",
-      "images/shikakaishampoo.png",
-      "images/hairpack.png"
-    ],
-    name: "Complete Hair Care Kit",
-    desc: "Complete traditional ayurvedic routine to cleanse, soothe scalp, and stimulate healthy root regrowth.",
-    price: 469,
-    originalPrice: 500,
-    savings: 31,
-    badge: "15% Extra Off",
-    inStock: true,
-    items: [
-      "Advanced Hair Regrowth Oil",
-      "Shikakai Shampoo",
-      "Herbal Hairpack"
-    ]
-  },
-  {
-    id: 103,
-    images: [
-      "images/redwine soap.png",
-      "images/Rosepetalssoap.png",
-      "images/charcoalsoap.png"
-    ],
-    name: "Artisan Soap Trio",
-    desc: "Three cold-processed, chemical-free soaps for a luxurious, skin-replenishing bathing experience.",
-    price: 299,
-    originalPrice: 330,
-    savings: 31,
-    badge: "Sellers Pick",
-    inStock: true,
-    items: [
-      "Red Wine Soap (Antioxidant)",
-      "Rose Petals Soap (Hydration)",
-      "Charcoal Soap (Deep cleanse)"
-    ]
-  }
-];
+// export const anniversaryCombos = [
+//   {
+//     id: 101,
+//     images: [
+//       "images/kumcream.png",
+//       "images/kumkumadifacewash.png",
+//       "images/lipbalm.png"
+//     ],
+//     name: "Ultimate Glow Kit",
+//     desc: "Achieve beautiful radiant skin with our saffron-infused bestseller cream, refreshing face wash, and nourishing lip tint.",
+//     price: 569,
+//     originalPrice: 605,
+//     savings: 36,
+//     badge: "Anniversary Special",
+//     inStock: true,
+//     items: [
+//       "Kumkumadi Cream (Saffron glow)",
+//       "Kumkumadi Face Wash",
+//       "Berry red Lip Balm"
+//     ]
+//   },
+//   {
+//     id: 102,
+//     images: [
+//       "images/herbal hairoil.png",
+//       "images/shikakaishampoo.png",
+//       "images/hairpack.png"
+//     ],
+//     name: "Complete Hair Care Kit",
+//     desc: "Complete traditional ayurvedic routine to cleanse, soothe scalp, and stimulate healthy root regrowth.",
+//     price: 469,
+//     originalPrice: 500,
+//     savings: 31,
+//     badge: "15% Extra Off",
+//     inStock: true,
+//     items: [
+//       "Advanced Hair Regrowth Oil",
+//       "Shikakai Shampoo",
+//       "Herbal Hairpack"
+//     ]
+//   },
+//   {
+//     id: 103,
+//     images: [
+//       "images/redwine soap.png",
+//       "images/Rosepetalssoap.png",
+//       "images/charcoalsoap.png"
+//     ],
+//     name: "Artisan Soap Trio",
+//     desc: "Three cold-processed, chemical-free soaps for a luxurious, skin-replenishing bathing experience.",
+//     price: 299,
+//     originalPrice: 330,
+//     savings: 31,
+//     badge: "Sellers Pick",
+//     inStock: true,
+//     items: [
+//       "Red Wine Soap (Antioxidant)",
+//       "Rose Petals Soap (Hydration)",
+//       "Charcoal Soap (Deep cleanse)"
+//     ]
+//   }
+// ];
 
 export default function Ruyani() {
   const [timeLeft, setTimeLeft] = useState(0);
@@ -798,8 +798,50 @@ export default function Ruyani() {
     decreaseQty,
     removeItem,
     getTotal,
-    whatsappCheckout
+    whatsappCheckout,
+    openCheckoutForm,
+  
+    showCheckoutForm,
+    setShowCheckoutForm,
+  
+    customerName,
+    setCustomerName,
+    customerPhone,
+    setCustomerPhone,
+    customerAddress,
+    setCustomerAddress,
   } = useCart();
+
+  const handlePlaceOrder = async (e) => {
+    e.preventDefault();
+
+    if (!customerName.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    if (!customerPhone.trim()) {
+      alert("Please enter your mobile number.");
+      return;
+    }
+
+    if (!/^[0-9]{10}$/.test(customerPhone)) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    if (!customerAddress.trim()) {
+      alert("Please enter your delivery address.");
+      return;
+    }
+
+    await whatsappCheckout(
+      customerName.trim(),
+      customerPhone.trim(),
+      customerAddress.trim()
+    );
+  };
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const [showOffer, setShowOffer] = useState(false);
@@ -866,9 +908,9 @@ export default function Ruyani() {
               Home
             </button>
           </li>
-          <li>
+          {/* <li>
             <a href="#anniversary-sale">Anniversary Offers</a>
-          </li>
+          </li> */}
           <li
             className="dropdown"
             onMouseEnter={() => setIsDropdownOpen(true)}
@@ -890,6 +932,7 @@ export default function Ruyani() {
                 <li><a href="#products" onClick={() => { setActiveCategory("Skin Care"); setIsDropdownOpen(false); }}>Skin Care</a></li>
                 <li><a href="#products" onClick={() => { setActiveCategory("Hair Care"); setIsDropdownOpen(false); }}>Hair Care</a></li>
                 <li><a href="#products" onClick={() => { setActiveCategory("Body Care"); setIsDropdownOpen(false); }}>Body Care</a></li>
+                <li><a href="#products" onClick={() => { setActiveCategory("Feminine Care"); setIsDropdownOpen(false); }}>Feminine Care</a></li>
               </ul>
             )}
           </li>
@@ -957,7 +1000,7 @@ export default function Ruyani() {
       </div>
 
       {/* Anniversary Sale Section */}
-      <section className="anniversary-sale" id="anniversary-sale">
+      {/* <section className="anniversary-sale" id="anniversary-sale">
         <div className="anniversary-header">
           <span className="anniversary-tag">RUYANI NATURALS • 1ST YEAR ANNIVERSARY 🎉</span>
           <h2>Anniversary Sale Specials</h2>
@@ -1035,7 +1078,7 @@ export default function Ruyani() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Cart Bar */}
       {/* {cart.length > 0 && (
@@ -1086,7 +1129,7 @@ export default function Ruyani() {
       <section className="products" id="products">
         <h2>Handcrafted for life's essentials</h2>
 
-        {["Skin Care", "Hair Care", "Body Care"]
+        {["Skin Care", "Hair Care", "Body Care", "Feminine Care"]
           .filter((cat) => activeCategory === "All" || activeCategory === cat)
           .map((category) => (
           <div key={category} id={category.toLowerCase().replace(" ", "")} className="category-section">
@@ -1098,7 +1141,7 @@ export default function Ruyani() {
                   <div className="product-card" key={p.id}>
                     {p.badge && <span className="product-badge">{p.badge}</span>}
                     <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                      <img src={p.img} alt={p.name} />
+                      <img src={p.img} alt={p.name} className={p.category === "Feminine Care" ? "feminine-product-image" : ""}/>
                     </Link>
                     <div className="product-info">
                       <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -1293,7 +1336,7 @@ export default function Ruyani() {
 
             <div className="cart-footer">
               <h4>Total: Rs. {getTotal()}</h4>
-              <button className="checkout-btn" onClick={whatsappCheckout}>
+              <button className="checkout-btn" onClick={openCheckoutForm}>
                 Checkout on WhatsApp
               </button>
             </div>
@@ -1319,6 +1362,86 @@ export default function Ruyani() {
           </div>
         </div>
       </section>
+
+      {/* Checkout Form */}
+      {showCheckoutForm && (
+        <div
+          className="checkout-overlay"
+          onClick={() => setShowCheckoutForm(false)}
+        >
+          <div
+            className="checkout-form"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="checkout-form-header">
+              <h2>Delivery Details</h2>
+              <button
+                type="button"
+                className="checkout-close"
+                onClick={() => setShowCheckoutForm(false)}
+                aria-label="Close checkout form"
+              >
+                ×
+              </button>
+            </div>
+
+            <form onSubmit={handlePlaceOrder}>
+              <div className="form-group">
+                <label htmlFor="customer-name">Name</label>
+                <input
+                  id="customer-name"
+                  type="text"
+                  placeholder="Enter your name"
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  autoComplete="name"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="customer-phone">Mobile Number</label>
+                <input
+                  id="customer-phone"
+                  type="tel"
+                  inputMode="numeric"
+                  placeholder="Enter 10-digit mobile number"
+                  value={customerPhone}
+                  maxLength={10}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "");
+                    setCustomerPhone(value);
+                  }}
+                  autoComplete="tel"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="customer-address">Delivery Address</label>
+                <textarea
+                  id="customer-address"
+                  placeholder="Enter your complete delivery address"
+                  rows={4}
+                  value={customerAddress}
+                  onChange={(e) => setCustomerAddress(e.target.value)}
+                  autoComplete="street-address"
+                />
+              </div>
+
+              <button type="submit" className="place-order-btn">
+                Place Order on WhatsApp
+              </button>
+
+              <button
+                type="button"
+                className="cancel-order-btn"
+                onClick={() => setShowCheckoutForm(false)}
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer>

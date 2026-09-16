@@ -129,6 +129,7 @@ def create_order(order_data: OrderCreate, db: Session = Depends(get_db)):
     new_order = Order(
         customer_name=order_data.customer_name,
         customer_phone=order_data.customer_phone,
+        customer_address=order_data.customer_address,
         total_amount=total_amount
     )
 

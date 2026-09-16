@@ -12,6 +12,13 @@ export const CartProvider = ({ children }) => {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  // Checkout form state
+  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
+
+  const [customerName, setCustomerName] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [customerAddress, setCustomerAddress] = useState("");
+
   // Save cart to localStorage
   useEffect(() => {
     localStorage.setItem("ruyani_cart", JSON.stringify(cart));
@@ -55,15 +62,15 @@ export const CartProvider = ({ children }) => {
         if (item.id !== id) {
           return item;
         }
-  
+
         console.log("Current quantity:", item.qty);
         console.log("Available stock:", item.stock_quantity);
-  
+
         if (item.qty >= Number(item.stock_quantity)) {
           alert(`Only ${item.stock_quantity} items are available in stock.`);
           return item;
         }
-  
+
         return {
           ...item,
           qty: item.qty + 1,
@@ -97,42 +104,59 @@ export const CartProvider = ({ children }) => {
       0
     );
 
-  // WhatsApp checkout
-  const whatsappCheckout = async () => {
+  // Open checkout form
+  const openCheckoutForm = () => {
     if (cart.length === 0) {
       alert("Your cart is empty.");
       return;
     }
-  
-    const customerName = prompt("Please enter your name:");
-    if (!customerName) return;
-  
-    const customerPhone = prompt("Please enter your phone number:");
-    if (!customerPhone) return;
-  
+
+    setShowCheckoutForm(true);
+  };
+
+  // Close checkout form
+  const closeCheckoutForm = () => {
+    setShowCheckoutForm(false);
+  };
+
+  // WhatsApp checkout
+  const whatsappCheckout = async (
+    customerName,
+    customerPhone,
+    customerAddress
+  ) => {
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+
     try {
-      const response = await fetch("https://ruyani-backend.onrender.com/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          customer_name: customerName,
-          customer_phone: customerPhone,
-          items: cart.map((item) => ({
-            product_id: item.id,
-            quantity: item.qty,
-          })),
-        }),
-      });
-  
+      const response = await fetch(
+        "https://ruyani-backend.onrender.com/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            customer_name: customerName,
+            customer_phone: customerPhone,
+            customer_address: customerAddress,
+            items: cart.map((item) => ({
+              product_id: item.id,
+              quantity: item.qty,
+            })),
+          }),
+        }
+      );
+
       const data = await response.json();
-  
+
       if (!response.ok) {
         alert(data.detail || "Unable to place order.");
         return;
       }
-  
+
       // Prepare WhatsApp message
       const message = cart
         .map(
@@ -142,32 +166,39 @@ export const CartProvider = ({ children }) => {
             }`
         )
         .join("\n");
-  
+
       const finalMessage = `Hello Ruyani,
-  
-  I would like to place an order.
-  
-  Customer Name: ${customerName}
-  Phone: ${customerPhone}
-  
-  ${message}
-  
-  Total: Rs.${data.total_amount}
-  
-  Order ID: ${data.order_id}
-  
-  Please confirm my order.`;
-  
+
+I would like to place an order.
+
+Customer Name: ${customerName}
+Phone: ${customerPhone}
+Delivery Address: ${customerAddress}
+
+${message}
+
+Total: Rs.${data.total_amount}
+
+Order ID: ${data.order_id}
+
+Please confirm my order.`;
+
       const encodedMessage = encodeURIComponent(finalMessage);
-  
-      window.location.href =
-         `https://wa.me/919629888703?text=${encodedMessage}`;
-  
-      // Clear cart only after successful order creation
+
+      // Clear cart
       setCart([]);
       setIsCartOpen(false);
-  
-      alert(`Order placed successfully! Order ID: ${data.order_id}`);
+      setShowCheckoutForm(false);
+
+      // Clear form fields
+      setCustomerName("");
+      setCustomerPhone("");
+      setCustomerAddress("");
+
+      // Open WhatsApp
+      window.location.href =
+        `https://wa.me/919629888703?text=${encodedMessage}`;
+
     } catch (error) {
       console.error("Order error:", error);
       alert("Unable to connect to the server. Please try again.");
@@ -177,6 +208,7 @@ export const CartProvider = ({ children }) => {
   return (
     <CartContext.Provider
       value={{
+        // Cart
         cart,
         setCart,
         isCartOpen,
@@ -186,6 +218,22 @@ export const CartProvider = ({ children }) => {
         decreaseQty,
         removeItem,
         getTotal,
+
+        // Checkout
+        showCheckoutForm,
+        setShowCheckoutForm,
+        openCheckoutForm,
+        closeCheckoutForm,
+
+        // Customer details
+        customerName,
+        setCustomerName,
+        customerPhone,
+        setCustomerPhone,
+        customerAddress,
+        setCustomerAddress,
+
+        // Order
         whatsappCheckout,
       }}
     >
