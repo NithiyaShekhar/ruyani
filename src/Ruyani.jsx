@@ -698,12 +698,7 @@ export default function Ruyani() {
 
         const data = await response.json();
 
-const optimizedProducts = data.map((product) => ({
-  ...product,
-  img: product.img.replace(/\.(png|jpg|jpeg)$/i, ".webp"),
-}));
-
-setProducts(optimizedProducts);
+        setProducts(data);
       } catch (err) {
         console.error(err);
         setError("Unable to load products");
