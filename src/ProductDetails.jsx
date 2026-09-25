@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./style.css";
 
+
 export default function ProductDetails() {
   const { id } = useParams();
   const { cart, isCartOpen, setIsCartOpen, addToCart, increaseQty, decreaseQty, removeItem, getTotal, whatsappCheckout } = useCart();
@@ -61,7 +62,7 @@ useEffect(() => {
       <nav className="navbar">
         <div className="nav-logo">
           <Link to="/" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center" }}>
-            <img src="/images/fav.png" alt="Ruyani Naturals Logo" className="nav-logo-icon" />
+            <img src="/images/fav.webp" alt="Ruyani Naturals Logo" className="nav-logo-icon" />
             RUYANI NATURALS
           </Link>
         </div>

@@ -8,7 +8,7 @@ const WHATSAPP_NUMBER = "919629888703";
  const fallbackProducts = [
     {
       id: 1,
-      img: "images/kumcream.png",
+      img: "images/kumcream.webp",
       name: "Kumkumadi Cream",
       desc: "Pure Kumkumadi miracle cream – handmade with real saffron for visible glow in few days.",
       price: 250,
@@ -119,7 +119,7 @@ const WHATSAPP_NUMBER = "919629888703";
     // },
     {
       id: 6,
-      img: "images/kumkumadifacewash.png",
+      img: "images/kumkumadifacewash.webp",
       name: "Kumkumadi Face Wash",
       desc: "Enriched with kumkumadi ingredients to brighten skin, remove impurities, and give a radiant glow.",
       price: 195,
@@ -140,7 +140,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 7,
-      img: "images/Coffeefacewash.png",
+      img: "images/Coffeefacewash.webp",
       name: "Coffee Glow Face Wash",
       desc: "Energizing coffee face wash that deeply cleanses, removes excess oil, and gives an instant natural glow.",
       price: 195,
@@ -161,7 +161,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 8,
-      img: "images/charcoalsoap.png",
+      img: "images/charcoalsoap.webp",
       name: "Charcoal Soap",
       desc: "Activated charcoal soap that deeply cleanses pores, removes impurities, and leaves skin fresh and clear.",
       price: 110,
@@ -182,7 +182,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 9,
-      img: "images/kuppaimenisoap.png",
+      img: "images/kuppaimenisoap.webp",
       name: "Kuppaimeni Soap",
       desc: "Herbal kuppaimeni soap that helps reduce acne, soothe skin, and promote a clear, healthy complexion.",
       price: 110,
@@ -203,7 +203,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 10,
-      img: "images/herbal hairoil.png",
+      img: "images/herbal hairoil.webp",
       name: "Advanced Hair Regrowth Oil",
       desc: "Powerful herbal oil that strengthens roots, reduces hair fall, and supports healthy hair regrowth.",
       price: 210,
@@ -224,7 +224,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 11,
-      img: "images/herbal hairdye.png",
+      img: "images/herbal hairdye.webp",
       name: "Organic Herbal Hair Dye",
       desc: "100% herbal hair dye that naturally colors hair while nourishing and protecting it from damage.",
       price: 299,
@@ -247,7 +247,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 12,
-      img: "images/dandruff oil.png",
+      img: "images/dandruff oil.webp",
       name: "Anti-dandruff Hair Oil",
       desc: "Herbal oil that controls dandruff, soothes itchy scalp, and keeps hair healthy and flake-free.",
       price: 220,
@@ -332,7 +332,7 @@ const WHATSAPP_NUMBER = "919629888703";
     // },
     {
       id: 16,
-      img: "images/moringashampoo.png",
+      img: "images/moringashampoo.webp",
       name: "Moringa Shampoo",
       desc: "Enriched with moringa extracts to strengthen roots, control hair fall, and leave hair soft and healthy.",
       price: 210,
@@ -353,7 +353,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 17,
-      img: "images/Rosepetalssoap.png",
+      img: "images/Rosepetalssoap.webp",
       name: "Rose Petals Soap",
       desc: "Gentle rose petals soap that hydrates skin, soothes irritation, and leaves a soft natural glow.",
       price: 110,
@@ -374,7 +374,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 18,
-      img: "images/kumkumadi soap.png",
+      img: "images/kumkumadi soap.webp",
       name: "Kumkumadi Soap",
       desc: "Kumkumadi soap enriched with saffron to brighten skin, reduce dullness, and enhance natural glow.",
       price: 110,
@@ -396,7 +396,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 19,
-      img: "images/redwine soap.png",
+      img: "images/redwine soap.webp",
       name: "Red Wine Soap",
       desc: "Red wine soap rich in antioxidants that helps rejuvenate skin and improve overall skin texture.",
       price: 110,
@@ -439,7 +439,7 @@ const WHATSAPP_NUMBER = "919629888703";
     // },
     {
       id: 21,
-      img: "images/lipbalm.png",
+      img: "images/lipbalm.webp",
       name: "Berry red Lip Balm",
       desc: "Infused with natural oils to hydrate, heal dry lips, and give a rich berry tint.",
       price: 160,
@@ -460,7 +460,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 22,
-      img: "images/beetroot_lipbalm.png",
+      img: "images/beetroot_lipbalm.webp",
       name: "Beetroot Lip Balm",
       desc: "Enriched with beetroot and natural oils to moisturize, heal dry lips, and enhance natural lip color.",
       price: 160,
@@ -482,7 +482,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 23,
-      img: "images/hairpack.png",
+      img: "images/hairpack.webp",
       name: "Herbal Hairpack",
       desc: "A nourishing herbal hair pack that strengthens roots, controls hair fall, and restores natural shine.",
       price: 80,
@@ -504,7 +504,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 24,
-      img: "images/bodymoisturizer.png",
+      img: "images/bodymoisturizer.webp",
       name: "Almond Body Moisturizer",
       desc: "Deeply hydrating almond body moisturizer that leaves skin soft, smooth, and nourished all day long.",
       price: 250,
@@ -526,7 +526,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 25,
-      img: "images/shimmer_cream.png",
+      img: "images/shimmer_cream.webp",
       name: "Shimmer Face Cream",
       desc: "A luxurious face cream with a subtle shimmer for an instant glow and deep hydration.",
       // originalPrice: 380,
@@ -549,7 +549,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 26,
-      img: "images/crack balm.png",
+      img: "images/crack balm.webp",
       name: "Crack Healing Balm",
       desc: "A rich herbal balm that deeply moisturizes, repairs cracked heels, relieves dryness, and promotes smoother, healthier-looking skin.",
       price: 199,
@@ -572,7 +572,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 27,
-      img: "images/detan face pack.png",
+      img: "images/detan face pack.webp",
       name: "Detan Face Pack",
       desc: "Specially crafted face pack to remove tan, deep cleanse pores, and restore natural skin brightness.",
       price: 220,
@@ -595,7 +595,7 @@ const WHATSAPP_NUMBER = "919629888703";
     },
     {
       id: 28,
-      img: "images/manjista soap.png",
+      img: "images/manjista soap.webp",
       name: "Manjista Soap",
       desc: "A gentle herbal soap enriched with Manjista powder and nourishing oils to cleanse, nourish, and support a naturally even-looking complexion.",
       price: 120,
@@ -698,7 +698,12 @@ export default function Ruyani() {
 
         const data = await response.json();
 
-        setProducts(data);
+const optimizedProducts = data.map((product) => ({
+  ...product,
+  img: product.img.replace(/\.(png|jpg|jpeg)$/i, ".webp"),
+}));
+
+setProducts(optimizedProducts);
       } catch (err) {
         console.error(err);
         setError("Unable to load products");
@@ -894,7 +899,7 @@ export default function Ruyani() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-logo">
-          <img src="images/fav.png" alt="Ruyani Naturals Logo" className="nav-logo-icon" />
+          <img src="/images/fav.webp" alt="Ruyani Naturals Logo" className="nav-logo-icon" />
           RUYANI NATURALS
         </div>
 
@@ -977,7 +982,7 @@ export default function Ruyani() {
             <div className="marquee-group" key={i}>
               <div className="marquee-item brand">RUYANI</div>
               <div className="marquee-item launch-tag">SHIMMER CREAM • NEW LAUNCH - ORDER NOW</div>
-              <img src="images/shimmer_cream.png" alt="Shimmer Cream" className="marquee-prod-img" />
+              <img src="/images/shimmer_cream.webp" alt="Shimmer Cream" className="marquee-prod-img" />
               <div className="marquee-item ingredients">
                 <span>Aloe Vera</span>
                 <span className="dot"></span>
@@ -1141,7 +1146,7 @@ export default function Ruyani() {
                   <div className="product-card" key={p.id}>
                     {p.badge && <span className="product-badge">{p.badge}</span>}
                     <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                      <img src={p.img} alt={p.name} className={p.category === "Feminine Care" ? "feminine-product-image" : ""}/>
+                      <img src={p.img} alt={p.name} loading="lazy" decoding="async" className={p.category === "Feminine Care" ? "feminine-product-image" : ""}/>
                     </Link>
                     <div className="product-info">
                       <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -1286,7 +1291,7 @@ export default function Ruyani() {
               {cart.map((item) => (
                 <div key={item.id} className="cart-item">
                   {/* Product Image */}
-                  <img src={item.img} alt={item.name} className="cart-item-img" />
+                  <img src={item.img} alt={item.name} loading="lazy" decoding="async" className="cart-item-img" />
 
                   {/* Product Details */}
                   <div className="cart-item-details">
